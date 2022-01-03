@@ -1,4 +1,5 @@
 {
+	"suggest.labelMaxLength": 50,
 	"http.proxyStrictSSL": false,
 	"suggest.defaultSortMethod": "none",
 	"markdown-preview-enhanced.enableScriptExecution": true,
@@ -46,11 +47,21 @@
 	},
 	"clangd": {
 		"filetypes": ["c", "cpp", "cuda", "objc", "objcpp"],
-		"disableDiagnostics": true,
+		"clangd.arguments": [
+			"--background-index",
+			"--compile-commands-dir=build_root",
+			"--enable-config",
+			"-j=12",
+			"--clang-tidy",
+			"--clang-tidy-checks=performance-*,bugprone-*,boost-*,google-*,modernize-*,readability-*"
+		],
 		"semanticHighlighting": true,
 	},
 	"coc.preferences.semanticTokensHighlights": false,
 	"cmake.lsp.enable": true,
+	"cmake.lsp.serverPath": "~/.local/bin/cmake-language-server",
+	"cmake.lsp.buildDirectory": "build_root",
+	"cmake.formatter": "~/.local/bin/cmake-format",
 
 	"diagnostic-languageserver.filetypes": {
 		"vim": "vint",

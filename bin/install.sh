@@ -11,7 +11,8 @@ echo "zsh complete"
 
 mkdir -p ~/.vim/bundle/files/{backup,swap,info,undo}
 mkdir -p ~/.vim/bundle/repos
-
+curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
+    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 echo "chsh -s /bin/zsh"
 
 # ssh-keygen -t rsa -C "rafrozenluoxin@gmail.com"
