@@ -1,0 +1,5 @@
+crt1.o, crti.o, crtbegin.o, crtend.o, crtn.o 
+启动、初始化、构造、析构和结束
+中crt1.o中包含程 序的入口函数_start以及两个未定义的符号__libc_start_main和main，由_start负责调用 __libc_start_main初始化libc，然后调用我们源代码中定义的main函数；另外，由于类似于全局静态对象这样的代码需要在main函 数之前执行，crti.o和crtn.o负责辅助启动这些代码。
+
+用于在.init区 中执行初始化函数init()。.init区中包含进程的初始化代码，即当程序开始执行时，系统会在调用main()之前先执行.init中的代码。 crtn.o则用于在.fini区中执行进程终止退出处理函数fini()函数，即当程序正常退出时（main()返回之后），系统会安排执行.fini 中的代码。

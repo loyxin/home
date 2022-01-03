@@ -1,0 +1,25 @@
+# set a breakpoint
+b some-method, break some-method
+b fn1 if a>b
+delete n #删除第n个断点
+disable n #暂停第n个断点
+clear 行号n # 清除第n行的断点
+info b （info breakpoints） ：显示当前程序的断点设置情况
+delete breakpoints：清除所有断点：
+
+# print a stacktrace
+bt, backtrace
+# evaluate an expression and print the result
+p length=strlen(string)
+display 表达式：在单步运行时将非常有用，使用display命令设置一个表达式后，它将在每次单步进行指令后，紧接着输出被设置的表达式及值。如： display a
+watch 表达式：设置一个监视点，一旦被监视的“表达式”的值改变，gdb将强行终止正在被调试的程序。如： watch a
+
+#运行程序，直到当前函数完成返回，并打印函数返回时的堆栈地址和返回值及参数值
+finish
+call # 调用函数 call functin(para)
+
+layout：用于分割窗口，可以一边查看代码，一边测试：
+layout src：显示源代码窗口
+layout asm：显示反汇编窗口
+layout regs：显示源代码/反汇编和CPU寄存器窗口
+layout split：显示源代码和反汇编窗口
