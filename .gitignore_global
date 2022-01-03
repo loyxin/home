@@ -16,3 +16,9 @@ ehthumbs.db
 Desktop.ini
 db.ini
 .vscode
+
+*.So
+*.so
+*.a
+
+.cache

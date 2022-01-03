@@ -4,9 +4,3 @@
 [submodule ".tmux/plugins/tpm"]
 	path = .tmux/plugins/tpm
 	url = https://github.com/tmux-plugins/tpm.git
-[submodule "study/rust"]
-	path = study/rust
-	url = git@github.com:loyxin/rust.git
-[submodule "bin/conf"]
-	path = bin/conf
-	url = git@github.com:loyxin/conf.git

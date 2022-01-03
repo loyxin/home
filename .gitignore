@@ -239,4 +239,11 @@ tmp/
 
 package.json
 
-.conkyrc
+.p4merge/
+
+bin/ccls
+bin/coc.nvim.git/
+bin/plug.vim
+bin/vim
+.npmrc
+ccls
