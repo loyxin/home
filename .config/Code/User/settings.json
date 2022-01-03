@@ -1,0 +1,53 @@
+{
+	"files.exclude": {
+		".cache": true,
+		".ccache": true,
+		".config": true,
+		".vim": false,
+		".viminfo": true,
+		".vscode": true,
+		"**/.cache": true,
+		"**/.DS_Store": true,
+		"**/.git": true,
+		"**/.hg": true,
+		"**/.svn": true,
+		"**/.vim": true,
+		"**/*.ccls-cache": true,
+		"**/CVS": true
+	},
+	"editor.bracketPairColorization.enabled": true,
+	"editor.guides.bracketpairs": "active",
+	"security.workspace.trust.untrustedfiles": "open",
+	"ccls.clang.extraArgs": [
+		"-Wno-everything"
+	],
+	"ccls.diagnostics.spellChecking": false,
+	"ccls.launch.command": "/usr/bin/ccls",
+	"ccls.highlight.function.face": ["enabled"],
+	"ccls.highlight.type.face": ["enabled"],
+	"ccls.highlight.variable.face": ["enabled"],
+	"ccls.completion.detailedLabel": true,
+	"ccls.launch.args": [
+		"--init={\"capabilities\": {\"foldingRangeProvider\": false}}"
+	],
+	"ccls.cache.directory": "${workspaceFolder}/.vscode/.ccls-cache",
+	"C_Cpp.autocomplete": "Disabled",
+	"C_Cpp.errorSquiggles": "Disabled",
+	"C_Cpp.intelliSenseEngine": "Disabled",
+	"C_Cpp.formatting": "Disabled",
+
+	"extensions.autoUpdate": false,
+
+	"workbench.startupEditor": "none",
+	"timeline.excludeSources": [
+		"git-history"
+	],
+	"window.zoomLevel": 1,
+	"editor.fontSize": 16,
+	"workbench.iconTheme": "vscode-icons",
+	"vim.disableAnnoyingNeovimMessage": true,
+	"html.format.wrapLineLength": 80,
+	"explorer.confirmDelete": false,
+	"editor.wordWrap": "on",
+	"workbench.colorTheme": "Dracula",
+}
