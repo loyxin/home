@@ -2,11 +2,6 @@
 let g:myemail = "loy.xin@qq.com"
 let g:myname = "loyxin"
 set pythonthreedll=/usr/lib64/libpython3.so
-" open new vi install plugin automatically
-if empty(glob($HOME.'/.vim/autoload/plug.vim'))
-silent !curl -fLo $HOME/.vim/autoload/plug.vim --create-dirs
-			\ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-endif
 let $myvimhome=$HOME
 let g:iswork=0
 " }}}
