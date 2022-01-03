@@ -1,0 +1,87 @@
+# lea
+lea是“load effective address”的缩写，简单的说，lea指令可以用来将一个内存地址直接赋给目的操作数，例如：
+lea eax,[ebx+8]就是将ebx+8这个值直接赋给eax，而不是把ebx+8处的内存地址里的数据赋给eax。
+
+# move
+mov eax,[ebx+8]则是把内存地址为ebx+8处的数据赋给eax。
+
+# address
+% 用于直接寻址寄存器，$ 表示立即数
+() 用于内存间接寻址，movl $3, (%rbp) 表示将立即数 3 保存到 rbp 所指向的内存地址中。
+-36(%rbp) 表示先找到 rbp 所指向地址，再 -36 后所得到的地址。
+
+call 指令之中的 call function = push rip + jmp function
+rip 指令地址寄存器
+ret 相当于：pop %rip
+
+rbp 基址指针/栈底地址
+rsp 栈顶指针
+将调用帧的 push %rbp 入栈。
+切换栈帧到当前栈帧 movq %rsp, %rbp。
+抬高栈顶，分配临时数据区 subq &xx, %rsp。
+
+pop %rbp 出栈的值赋值 rbp
+
+ax,bx,cx,dx 参数存 还有一些常用的
+rax 返回值,加法
+rbx, 数据存取
+rcx, 计数器，比如for循环
+rdx: 读写I/O端口时，edx用来存放端口号
+rsi: 字符串操作时，用于存放数据源的地址
+rdi: 字符串操作时，用于存放目的地址的，和esi两个经常搭配一起使用，执行字符串的复制等操作
+
+标志寄存器 je jle jg 参考 cmpl改变
+
+段寄存器
+cs: 代码段
+ds: 数据段
+ss: 栈段
+es: 扩展段
+fs: 数据段
+gs: 数据段
+
+控制寄存器
+cr0: 存储了CPU控制标记和工作状态
+cr1: 保留未使用
+cr2: 页错误出现时保存导致出错的地址
+cr3: 存储了当前进程的虚拟地址空间的重要信息——页目录地址
+cr4: 也存储了CPU工作相关以及当前人任务的一些信息
+cr8: 64位新增扩展使用
+
+调试寄存器DR0~DR7
+
+leave相当于：
+mov %rbp, %rsp
+pop %rbp
+
+函数 call 另外一个函数
+另外一个函数
+push %rbp
+mov %rsp, %rbp
+sub &xx, %rsp
+......
+add &xx,%rsp
+pop %rbp
+ret
+
+NOP指令通常用于控制时序的目的，强制内存对齐，防止流水线灾难
+cmp 比大小 影响 Flags 寄存器
+jg great
+je equal
+jle less
+jmp jump
+
+描述符寄存器
+GDTR
+LDTR
+IDTR 中断描述符表寄存器
+全局描述符表 内核
+局部描述符表 每个进程有一个
+GDT是保护模式下限制非法内存访问的一种方式。
+
+任务寄存器TR 它指向当前运行的任务。
+
+MSR寄存器
+这三个MSR寄存器是用来实现快速系统调用。
+分别存储了执行系统调用后，内核系统调用入口函数所需要的段寄存器、堆栈栈顶、函数地址
+这一对指令升级为syscall/sysret.

@@ -1,0 +1,14 @@
+# Displays all files, along with the size (with unit suffixes) and timestamp
+ls -lh
+
+# Display files, sorted by size
+ls -S
+
+# Display directories only
+ls -d */
+
+# Display directories only, include hidden
+ls -d .*/ */
+
+# recursively ls
+ls -R

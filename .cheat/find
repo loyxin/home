@@ -1,0 +1,17 @@
+# To find files by case-insensitive extension (ex: .jpg, .JPG, .jpG):
+find . -iname "*.jpg"
+
+# To find directories:
+find . -type d
+
+# To find files:
+find . -type f
+
+# To find files by octal permission:
+find . -type f -perm 777
+
+# To find files with extension '.txt' and remove them:
+find ./path/ -name '*.txt' -exec rm '{}' \;
+
+# 递归当前目录及子目录删除所有.o文件
+find ./ -name "*.o" -exec rm {} \;
