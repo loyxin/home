@@ -220,6 +220,7 @@ iCloud云盘（归档）/
 .zcompdump*
 
 .vim/.netrwhist
+.vim/autoload
 program
 
 writetach
