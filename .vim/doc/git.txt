@@ -1,0 +1,7 @@
+vim-gitgutter
+[c 和 ]c。可以非常方便地在各diff之间跳转
+* stage the hunk with `<Leader>hs` or
+* undo it with `<Leader>hu`.
+* preview a hunk's changes with `<Leader>hp`
+* - `ic` operates on all lines in the current hunk.
+- `ac` operates on all lines in the current hunk and any trailing empty lines.

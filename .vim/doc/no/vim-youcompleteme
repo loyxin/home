@@ -1,0 +1,8 @@
+YouCompleteMe
+<C-a> 主动调用补全
+<leader>jd 跳转到定义或声明处
+<c-j> 扩展片段　<c-j> 往下跳转 <c-x> 网上跳转
+:YcmDiags　代码出现错误时　普通模式下输入
+T 模式 （c-]） -- tag 补全，查找 tag 中的匹配单词，组成补全列表
+I 模式 （c-I） -- 头文件补全，查找当前 buffer 和 include file 中的匹配单词，组成补全列表
+D 模式 （c-D） -- 定义补全，查找当前 buffer 与 include file 中匹配的名称定义，组成补全列表

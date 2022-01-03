@@ -1,0 +1,384 @@
+2. DrawIt Manual					*drawit* {{{1
+### DrawIt.txt
+:DIstart 可以进行画图
+:DIstop 进行关闭
+							*drawit-manual*
+ /===============+============================================================\
+ || Starting &   |                                                           ||
+ || Stopping     | Explanation                      Links:                   ||
+ ++--------------+-----------------------------------------------------------++
+ ||  \di         | start DrawIt                     |drawit-start|             ||
+ ||  \ds         | stop  DrawIt                     |drawit-stop|              ||
+ ||  :DIstart    | start DrawIt                     |drawit-start|             ||
+ ||  :DIstart S  | start DrawIt in single-bar mode  |drawit-start|             ||
+ ||  :DIstart D  | start DrawIt in double-bar mode  |drawit-start|             ||
+ ||  :DIsngl     | start DrawIt in single-bar mode  |drawit-start| |drawit-sngl| ||
+ ||  :DIdbl      | start DrawIt in double-bar mode  |drawit-start| |drawit-dbl|  ||
+ ||  :DIstop     | stop  DrawIt                     |drawit-stop|              ||
+ ||  :DrawIt[!]  | start/stop DrawIt                |drawit-start| |drawit-stop| ||
+ ||              |                                                           ||
+ ++==============+===========================================================++
+ ||   Maps       | Explanation                                     Links:    ||
+ ++--------------+-----------------------------------------------------------++
+ ||              | The DrawIt routines use a replace, move, and              ||
+ ||              | replace/insert strategy.  The package also lets one insert||
+ ||              | spaces, draw arrows by using the following characters or  ||
+ ||              | keypad characters:                                        ||
+ ||              |                                                           ||
+ || <left>       | move and draw left                         |drawit-drawing| ||
+ || <right>      | move and draw right, inserting lines/space as needed      ||
+ || <up>         | move and draw up, inserting lines/space as needed         ||
+ || <down>       | move and draw down, inserting lines/space as needed       ||
+ || <s-left>     | move cursor left                              |drawit-move| ||
+ || <s-right>    | move cursor right, inserting lines/space as needed        ||
+ || <s-up>       | move cursor up, inserting lines/space as needed           ||
+ || <s-down>     | move cursor down, inserting lines/space as needed         ||
+ || <space>      | toggle into and out of erase mode                         ||
+ || >            | insert a > and move right    (draw -> arrow)              ||
+ || <            | insert a < and move left     (draw <- arrow)              ||
+ || ^            | insert a ^ and move up       (draw ^  arrow)              ||
+ || v            | insert a v and move down     (draw v  arrow)              ||
+ || <pgdn>       | replace with a \, move down and right, and insert a \     ||
+ || <end>        | replace with a /, move down and left,  and insert a /     ||
+ || <pgup>       | replace with a /, move up   and right, and insert a /     ||
+ || <home>       | replace with a \, move up   and left,  and insert a \     ||
+ || \>           | insert a fat > and move right    (draw -> arrow)          ||
+ || \<           | insert a fat < and move left     (draw <- arrow)          ||
+ || \^           | insert a fat ^ and move up       (draw ^  arrow)          ||
+ || \v           | insert a fat v and move down     (draw v  arrow)          ||
+ ||<s-leftmouse> | drag and draw with current brush            |drawit-brush|  ||
+ ||<c-leftmouse> | drag and move current brush                 |drawit-brush|  ||
+ ||              |                                                           ||
+ ||==============+===========================================================++
+ ||Visual Cmds   | Explanation                                               ||
+ ||--------------+-----------------------------------------------------------++
+ ||              | The drawing mode routines use visual-block mode to        ||
+ ||              | select endpoints for lines, arrows, and ellipses. Bresen- ||
+ ||              | ham and Bresenham-like algorithms are used for this.      ||
+ ||              |                                                           ||
+ ||              | These routines need a block of spaces, and so the canvas  ||
+ ||              | routine must first be used to create such a block.  The   ||
+ ||              | canvas routine will query the user for the number of      ||
+ ||              | lines to hold |'textwidth'| spaces.                         ||
+ ||      Links:  |                                                           ||
+ || \a  |drawit-a| | draw arrow from corners of visual-block selected region   ||
+ || \b  |drawit-b| | draw box on visual-block selected region                  ||
+ || \c  |drawit-c| | the canvas routine (will query user, see above)           ||
+ || \e  |drawit-e| | draw an ellipse on visual-block selected region           ||
+ || \f  |drawit-f| | flood figure with a character (you will be prompted)      ||
+ || \g  |drawit-g| | draw grid (using previous spacing, or 10x10)              ||
+ || \l  |drawit-l| | draw line from corners of visual-block selected region    ||
+ || \s  |drawit-s| | spacer: appends spaces up to the usable window with       ||
+ ||              |                                                           ||
+ ++===========+==============================================================++
+ || Functions |    Explanation                                       Links:  ||
+ ++-----------+--------------------------------------------------------------++
+ ||  :call SetDrawIt('vertical','horizontal','crossing','\','/','X','*')     ||
+ ||          | set drawing characters for motions for moving                 ||
+ ||          | and for the ellipse drawing boundary        |drawit-setdrawit|  ||
+ ||  default | motion                                                        ||
+ ||  |       | up/down,                                                      ||
+ ||  -       | left/right,                                                   ||
+ ||  +       | -| crossing,                                                  ||
+ ||  \       | downright,                                                    ||
+ ||  /       | downleft, and                                                 ||
+ ||  X       | \/ crossing                                                   ||
+ ++==========+============+==================================================++
+ ||  Commands             | Explanation                             Links:   ||
+ ++-----------------------+--------------------------------------------------++
+ ||  :SetBrush a-z        | sets brush (register) to given register          ||
+ ||  :'<,'>SetBrush a-z   | yanks visual block to brush      |drawit-brush|||    ||
+ ||  :DInrml              | switch to normal mode            |drawit-nrml|     ||
+ ||  :DIsngl              | switch to single-line mode       |drawit-sngl|     ||
+ ||  :DIdbl               | switch to double-line mode       |drawit-dbl|      ||
+ ||  :DIarrow             | draw an arrow                    |:DIarrow|        ||
+ ||  :DIbox               | draw a box                       |:DIbox|          ||
+ ||  :DIcanvas            | generate a canvas                |:DIcanvas|       ||
+ ||  :DIcircle            | draw a circle                    |:DIcircle|       ||
+ ||  :DIellipse           | draw a ellipse                   |:DIellipse|      ||
+ ||  :DIflood             | flood figure with a character    |:DIflood|        ||
+ ||  :DIflood             | draw a line                      |:DIline|         ||
+ ||  :DIgrid dr dc        | toggle a rough grid              |:DIgrid|         ||
+ ||  :DIoff               | turn DrawIt off                  |:DIoff|          ||
+ ||  :DIspacer            | append spaces up to textwidth    |:DIspacer|       ||
+ \============================================================================/
+
+
+STARTING						*drawit-start* {{{2
+
+\di           (starts in normal     drawing mode)       *drawit-\di*
+:DrawIt       (starts in normal     drawing mode)       *drawit-DrawIt*
+:DIstart      (starts in normal     drawing mode)       *drawit-DIstart*
+:DIstart S    (starts in single-bar drawing mode)
+:DIstart D    (starts in double-bar drawing mode)
+:DInrml       (starts in normal     drawing mode)       *drawit-DInrml*
+:DIsngl       (starts in single-bar drawing mode)       *drawit-DIsngl*
+:DIdbl        (starts in double-bar drawing mode)       *drawit-DIdbl*
+
+DrawIt supports a number of different ways to start up as shown above; in
+addition, you may use gvim and the DrChip menu.
+
+To stop DrawIt, use \ds (*d*rawit *s*top) or :DIstop.
+
+DrawIt also supports the use of |mapleader|; with that, you may specify
+what you with as the maps' leading kickoff character.  This document
+will use the default '\'.
+
+With a trailing 'S', :DIstart will begin in single-bar mode (see |drawit-sngl|).
+With a trailing 'D', :DIstart will begin in double-bar mode (see |drawit-dbl|).
+Similarly, :DIsngl and :DIdbl will start DrawIt as well as begin in
+single-bar or double-bar mode, respectively.
+
+A message, "[DrawIt]", will appear on the message line.
+
+
+                                                        *drawit-off*
+STOPPING						*drawit-stop* {{{2
+\ds
+:DrawIt!
+:DIstop
+:DIoff
+
+When you are done with DrawIt, use \ds to stop DrawIt mode.  Stopping DrawIt
+will restore your usual options and remove the maps DrawIt set up.
+
+A message, "[DrawIt off]", will appear on the message line.
+
+						*drawit-utf16*
+						*drawit-utf8* *drawit-unicode*
+NORMAL, SINGLE BAR, AND DOUBLE BAR MODES	*drawit-sngl* *drawit-dbl*
+:DInrml  :DIsngl  :DIdbl
+
+One may use these commands to start up Drawit in normal, single-bar, or
+double-bar modes, respectively.  When your |'encoding'| is utf-8 or utf-16,
+DrawIt supports drawing with special box characters (single-bar, double_bar).
+These commands are also used to switch to normal, single-bar, or double-bar
+modes.
+
+
+USER MAP PROTECTION					*drawit-protect* {{{2
+
+Starting DrawIt causes it to set up a number of maps which facilitate drawing.
+DrawIt accommodates users with conflicting maps by saving both maps and user
+options and before setting them to what DrawIt needs.  When you stop DrawIt
+(|drawit-stop|), DrawIt will restore the user's maps and options as they were
+before DrawIt was started.
+
+
+
+CHANGING DRAWING CHARACTERS				*drawit-setdrawit* {{{2
+
+The SetDrawIt() function is available for those who wish to change the
+characters that DrawIt uses. >
+
+    ex. :call SetDrawIt('*','*','*','*','*','*','*')
+    ex. :call SetDrawIt('-','|','-','\','/','/','*')
+<
+The first example shows how to change all the DrawIt drawing characters to
+asterisks, and the second shows how to give crossing priority to - and /.
+The default setting is equivalent to: >
+
+	:call SetDrawIt('|','-','+','\','/','X','*')
+<
+where SetDrawit()'s arguments refer, in order, to the >
+
+	vertical			drawing character
+    	horizontal			drawing character
+    	horizontal/vertical crossing	drawing character
+    	down right			drawing character
+    	down left			drawing character
+    	diagonal crossing		drawing character
+	ellipse boundary                drawing character
+<
+
+TIP							*drawit-tip*
+
+I have found that sometimes one or more of the <home>, <end>, <pageup>,
+and <pagedown> keys give unique sequences but are not interpreted
+properly by Vim.  This problem impacts DrawIt as it uses those four
+keys to signify diagonal moves/drawing.  One solution I use is to
+put into my <.vimrc> file mapings like:
+
+	map ^V... <home>
+
+where the ellipsis (...) is the actual character sequence produced by
+hitting the key.  The way to generate such maps is to type "map ",
+followed by three control-v presses, press the associated key, then
+a space followed by the proper interpretation sequence (ie. <home>).
+
+
+MOVING					*drawit-move* *drawit-moving* {{{2
+
+DrawIt supports shifting the arrow keys to cause motion of the cursor.  The
+motion of the cursor will not modify what's below the cursor.  The cursor
+will move and lines and/or spaces will be inserted to support the move as
+required.  Your terminal may not support shifted arrow keys, however, or Vim
+may not catch them as such.  For example, on the machine I use, shift-up
+(<s-up>) produced <Esc>[161q, but vim didn't know that sequence was a <s-up>.
+I merely made a nmap:
+
+	nmap <Esc>[161q	<s-up>
+
+and vim thereafter recognized the <s-up> command.
+
+
+ERASING							*drawit-erase* {{{2
+<space>
+
+The <space> key will toggle DrawIt's erase mode/DrawIt mode.  When in [DrawIt
+erase] mode, a message "[DrawIt erase]" will appear and the number pad will
+now cause spaces to be drawn instead of the usual drawing characters.  The
+drawing behavior will be restored when the <space> key toggles DrawIt back
+to regular DrawIt mode.
+
+
+EXAMPLES						*drawit-example* {{{2
+
+Needless to say, the square spirals which follow were done with DrawIt and
+a bit of block editing with Vim: >
+
+   +------------ -----------+ +------------ -----------+ +------------
+   |+----------+ +---------+| |+----------+ +---------+| |+----------+
+   ||+--------+| |+-------+|| ||+--------+| |+-------+|| ||+--------+|
+   |||-------+|| ||+------||| |||-------+|| ||+------||| |||-------+||
+   ||+-------+|| ||+------+|| ||+-------+|| ||+------+|| ||+-------+||
+   |+---------+| |+--------+| |+---------+| |+--------+| |+---------+|
+   +-----------+ +----------+ +-----------+ +----------+ +-----------+
+
+VISUAL BLOCK MODE FOR ARROWS LINES BOXES AND ELLIPSES	*drawit-visblock* {{{2
+
+	Visual-Block Maps: ~
+	(see |visual-block|)
+\a : draw arrow from corners of visual-block selected region	*drawit-a*
+\b : draw box on visual-block selected region			*drawit-b*
+\c : the canvas routine (will query user, see above)		*drawit-c*
+\e : draw an ellipse on visual-block selected region		*drawit-e*
+\g : draw a grid (uses previous spacing, or 10x10)		*drawit-g*
+\f : flood figure with a character (you will be prompted)	*drawit-f*
+\l : draw line from corners of visual-block selected region	*drawit-l*
+\s : spacer: appends spaces up to the usable window width    	*drawit-s*
+
+	Commands: ~
+*:DIarrow*   : draw arrow from corners of visual-block selected region
+*:DIbox*     : draw box on visual-block selected region
+*:DIcanvas*  : the canvas routine (will query user, see above)
+*:DIcircle*  : draw an ellipse on visual-block selected region
+*:DIellipse* : draw an ellipse on visual-block selected region
+*:DIflood*   : flood figure with a character (you will be prompted)
+*:DIline*    : draw line from corners of visual-block selected region
+*:DIoff*     : another way to turn DrawIt off
+*:DIspacer*  : spacer: appends spaces up to the usable window width
+*:DIgrid* [ dr ] [ dc ] : displays a rough grid with spacing of drxdc
+             rows by colums.  Use :DIgrid to turn the grid off.
+	     You may find |'cursorcolumn'| and |'cursorline| of use, too,
+	     when desiring to visually align your drawing.
+
+	Discussion: ~
+The DrawIt package has been merged with Sylvain Viart's drawing package (by
+permission) which provides DrawIt with visual-block selection of
+starting/ending point drawing of arrows (\a), lines (\l), and boxes (\b).
+Additionally Dr.Campbell wrote an ellipse drawing function using a visual
+block specification (|drawit-e|).
+
+One may create a block of spaces for these maps to operate in; the "canvas"
+routine (\c) will help create such blocks.  First, the s:Canvas() routine will
+query the user for the number of lines s/he wishes to have, and will then fill
+those lines with spaces out to the |'textwidth'| if the user has specified it;
+otherwise, the display width will be used.
+
+Although most of the maps use visual-block selection, that isn't true of the
+\f map.  Instead, it assume that you have already drawn some closed figure and
+want to fill it with some character (flooding).
+
+The Sylvain Viart functions and the ellipse drawing function depend upon using
+visual block mode.  As a typical use: >
+
+	Example: * \h
+                   DrawIt asks: how many lines under the cursor? 10
+                   DrawIt then appends 10 lines filled with blanks
+                   out to the usable window width
+                 * ctrl-v (move) \b
+                   DrawIt then draws a box
+		 * ctrl-v (move) \e
+                   DrawIt then draws an ellipse
+<
+Select the first endpoint with ctrl-v and then move to the other endpoint.
+One may then select \a for arrows, \b for boxes, \e for ellipses, or \l for
+lines.  The internal s:AutoCanvas() will convert tabs to spaces and will
+extend with spaces as needed to support the visual block.  Note that when
+DrawIt is enabled, virtualedit is also enabled (to "all").
+>
+        Examples:
+
+        __                _         ***************           +-------+
+          \_            _/      ****               ****       |       |
+            \_        _/      **      --------->       **     |       |
+              \_    _/          ****               ****       |       |
+                \__/   <-------     ***************           +-------+
+
+		\l        \a           \e and \a                  \b
+<
+							*drawit-setbrush*
+BRUSHES							*drawit-brush* {{{2
+>
+ :SetBrush [a-z]
+<
+	Set the current brush to the selected brush register:
+>
+		ex.  :SetBrush b
+
+ :'<,'>SetBrush [a-z]
+<
+	Select text for the brush by using visual-block mode: ctrl-v, move .
+	Then set the current text into the brush register:  (default brush: a)
+>
+ <leftmouse>
+<
+	Select a visual-block region.  One may use "ay, for example,
+	to yank selected text to register a.
+>
+ <shift-leftmouse>
+<
+	One may drag and draw with the current brush (default brush: a)
+	by holding down the shift key and the leftmouse button and moving
+	the mouse.  Blanks in the brush are considered to be transparent.
+>
+ <ctrl-leftmouse>
+<
+	One may drag and move a selection with <ctrl-leftmouse>.  First,
+	select the region using the <leftmouse>.  Release the mouse button,
+	then press ctrl and the <leftmouse> button; while continuing to press
+	the button, move the mouse.  The selected block of text will then
+	move along with the cursor.
+>
+ \ra ... \rz
+<
+	Replace text with the given register's contents (ie. the brush).
+>
+ \pa ... \pz
+<
+	Like \ra ... \rz, except that blanks are considered to be transparent.
+
+	Example: Draw the following >
+			\ \
+			o o
+			 *
+			---
+<		Then use ctrl-v, move, "ay to grab a copy into register a.
+		By default, the current brush uses register a (change brush
+		with :SetBrush [reg]).  Hold the <shift> and <leftbutton>
+		keys down and move the mouse; as you move, a copy of the
+		brush will be left behind.
+
+
+DRAWIT MODES						*drawit-modes* {{{2
+
+  -[DrawIt]       regular DrawIt mode                     (|drawit-start|)
+  -[DrawIt off]   DrawIt is off                           (|drawit-stop| )
+  -[DrawIt erase] DrawIt will erase using the number pad  (|drawit-erase|)
+
+  g:DrChipTopLvlMenu: by default its "DrChip"; you may set this to whatever
+                  you like in your <.vimrc>.  This variable controls where
+		  DrawIt's menu items are placed.
+
+

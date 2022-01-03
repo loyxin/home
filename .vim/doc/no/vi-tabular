@@ -1,0 +1,4 @@
+Vim tabular 对代码进行排版对齐
+:Tab /=
+goole/yapf
+<LocalLeader>= 就能对当前文件进行格式化：

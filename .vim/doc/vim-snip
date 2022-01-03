@@ -1,0 +1,42 @@
+# gramma
+
+snippet 关键词 “说明” 设定
+内容
+endsnippet
+
+snippet std "use namespace std" b
+using namespace std;
+endsnippet
+
+b ：只有当 trigger在行首才有效
+i ：默认情况下, trigger是自成一个单词才有用. 加了这个选项, 即使是在单词中, 只要出现了这几个字母, 就可以使用. 比如 aaatrigger, 也可以使用.
+w：与i相反, 只有是一个单词(前面是空格) 才可以使用.
+r：支持正则表达式t在这里,的其他功能
+r 表示关键词使用正则表达式。正则表达式必须用 两个引号' '包围。比如 \'([1-9])day\'。
+A 代表自动展开
+
+
+snippet "b(egin)?" "begin{} / end{}" br
+\begin{${1:something}}
+    ${0:${VISUAL}}
+\end{$1}
+endsnippet
+
+选项部分有br, 是说1. 只有在行首才有用; 2. 使用了正则表达. triggle 部分加了单/双引号, 正则表达的规则: 要加单/双引号.
+
+${1:name} 默认显示name
+而 ${VISUAL} 的意思就是会把 visual 选中的文本放进这里。
+
+注意$0是最后一个位置，到了$0以后就不能再跳转了，
+
+
+
+
+snippet python 学习
+
+https://github.com/cold-soda-jay/Markdown-vim
+# tips
+插入当前日期 (trigger: date)
+插入当前时间(trigger: datetime)
+插入一个大的注释框 (trigger: bbox)
+

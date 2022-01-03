@@ -1,0 +1,66 @@
+{
+	"http.proxyStrictSSL": false,
+	"suggest.defaultSortMethod": "none",
+	"markdown-preview-enhanced.enableScriptExecution": true,
+	"languageserver": {
+		"ccls": {
+			"command": "/usr/bin/ccls",
+			"filetypes": ["c", "cpp", "cuda", "objc", "objcpp"],
+			"rootPatterns": [".ccls-root", "compile_commands.json", ".git"],
+			"initializationOptions": {
+				"cache": {
+					"directory": ".vscode/.ccls-cache"
+				},
+				"client": {
+					"snippetSupport": true
+				},
+				"highlight": {
+					"lsRanges": true
+				},
+				"clang": {
+					"extraArgs": [
+						"-I",
+						"-Werror=return-type",
+						"-Werror=return-local-addr",
+						"-Wno-everything"
+					]
+				}
+			}
+		},
+		"cmake": {
+			"command": "cmake-language-server",
+			"filetypes": ["cmake"],
+			"rootPatterns": [
+				"build_root/"
+			],
+			"initializationOptions": {
+				"buildDirectory": "build_root"
+			}
+		},
+		"bash": {
+			"command": "bash-language-server",
+			"args": ["start"],
+			"filetypes": ["sh"],
+			"ignoredRootPaths": ["~"]
+		}
+	},
+	"clangd": {
+		"filetypes": ["c", "cpp", "cuda", "objc", "objcpp"],
+		"disableDiagnostics": true,
+		"semanticHighlighting": true,
+	},
+	"coc.preferences.semanticTokensHighlights": false,
+	"cmake.lsp.enable": true,
+
+	"diagnostic-languageserver.filetypes": {
+		"vim": "vint",
+		"sh": "shellcheck",
+		"cmake": ["cmake-lint", "cmakelint"],
+		"cpp": ["cpplint", "cppcheck"]
+	},
+	"diagnostic-languageserver.formatFiletypes": {
+		"sh": "shfmt",
+		"cmake": "cmake-format",
+	}
+
+}
