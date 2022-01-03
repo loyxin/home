@@ -83,7 +83,7 @@ source ~/.fzf.zsh
 
 export GIT_SSL_NO_VERIFY=1
 
-source ~/.zshset/.zshlx
+source ~/.zshset/.bc
 
 source ~/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.plugin.zsh
 
