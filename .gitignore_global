@@ -1,0 +1,18 @@
+compile_commands.json
+*.swp
+*.pdf
+tags
+# Python:
+*.py[cod]
+*.so
+*.egg
+*.egg-info
+dist
+build
+
+# Windows:
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+db.ini
+.vscode
