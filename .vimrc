@@ -1,14 +1,9 @@
 " 判断{{{
-let g:myemail = "loy.xin@qq.com"
-let g:myname = "loyxin"
-set pythonthreedll=/usr/lib64/libpython3.so
-" open new vi install plugin automatically
-if empty(glob($HOME.'/.vim/autoload/plug.vim'))
-silent !curl -fLo $HOME/.vim/autoload/plug.vim --create-dirs
-			\ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-endif
+let g:myemail = "loy.luo@asml.com"
+let g:myname = "loy.luo"
+set pythonthreedll=/home/roluo/program/install/py3/lib64/libpython3.8.so
 let $myvimhome=$HOME
-let g:iswork=0
+let g:iswork=1
 " }}}
 
 so $myvimhome/.vim/.vimrc.general.vim
@@ -198,3 +193,4 @@ nmap <leader>rf <Plug>(coc-refactor)
 
 "}}}
 "
+let g:lxplugmark=1
