@@ -1,0 +1,55 @@
+--- /dev/agpgart (AGP Support)
+---   Intel 440LX/BX/GX, I8xx and E7x05 chipset support
+<M> Direct Rendering Manager (XFree86 4.1.0 and higher DRI support)
+<M>   Intel 830M, 845G, 852GM, 855GM, 865G
+<M>     i915 driver
+
+[*] Enable firmware EDID
+<*> Support for frame buffer devices
+<*> Intel 830M/845G/852GM/855GM/865G/915G/945G support (EXPERIMENTAL)
+[*]   DDC/I2C for Intel framebuffer support
+配置声卡
+<M> Sound card support
+Advanced Linux Sound Architecture --->
+Open Sound System --->
+
+< > Advanced Linux Sound Architecture
+
+< > Open Sound System (DEPRECATED)
+
+配置有线网卡:
+[*] Ethernet (10 or 100Mbit)
+<*>   Generic Media Independent Interface device support
+[*] EISA, VLB, PCI and on board controllers
+<M>   Intel(R) PRO/100+ support
+
+lshw
+用这个命令 查 再对照驱动.
+
+wacom 数位板系统、笔感应式数位屏系统
+
+ * If you plan to use USB printers you should enable the USB_PRINTER
+ * support in your kernel.
+ * Please enable it:
+ *     CONFIG_USB_PRINTER=y
+ * in /usr/src/linux/.config or
+ *     Device Drivers --->
+ *         USB support  --->
+ *             [*] USB Printer support
+
+ *   CONFIG_SQUASHFS:	 is not set when it should be.
+ *   CONFIG_SQUASHFS_ZLIB:	 is not set when it should be.
+ *   CONFIG_SQUASHFS_LZO:	 is not set when it should be.
+ *   CONFIG_SQUASHFS_XZ:	 is not set when it should be.
+ *   CONFIG_SECURITY_APPARMOR:	 is not set when it should be.
+
+今天安装一个 wifi 驱动
+知道了 这个wifi 是有两个功能 一个储存 用来保存驱动 安装驱动
+一个网卡
+所以 linux 识别成 usb
+
+解决
+内核开启相应的功能
+安装驱动
+
+usb_modeswitch 去除 储存功能
