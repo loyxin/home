@@ -61,3 +61,4 @@ sudo systemctl enable bluetooth.service
 # vint shellcheck cmakelint shfmt cmake-format python-pip npm i -g bash-language-server
 # npm i -g js-beautify
 # gofmt rustfmt luafmt latexindent.pl
+# lsd

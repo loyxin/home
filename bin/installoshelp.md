@@ -122,7 +122,7 @@ eselect profile set "default/linux/amd64/17.1/systemd"
 
 ## install arch linux
 
-```shell
+```bash
 pacstrap /mnt base base-devel linux linux-firmware dhcpcd vim arch-install-scripts reflector
 arch-chroot /mnt
 sudo reflector -c China --save /etc/pacman.d/mirrorlist --sort rate
@@ -161,7 +161,7 @@ gsettings set com.deepin.dde.startdde launch-welcome false
 
 ## samba
 
-```shell
+```bash
 samba()
 {
     echo "samba install"
@@ -175,8 +175,17 @@ samba()
 }
 ```
 
+## jupyter
+```bash
+    sudo pip3 install jupyter scipy pandas matplotlib ipython
+    sudo pip3 install jupyterlab-git jupyter_contrib_nbextensions jupyter-highlight-selected-word jupyterthemes
+
+    jupyter serverextension enable --py jupyterlab_git
+    jupyter contrib nbextension install --user
+```
+
 ## webdav
-```shell
+```bash
 webdav()
 {
     echo "webdav install"
@@ -199,6 +208,22 @@ webdav()
     # netstat -tnlp | grep :22
     # lsof -i tcp:22
 }
+```
+
+## apt install
+```bash
+    sudo sed -i 's/deb/\#deb/g' /etc/apt/sources.list
+    sudo sed -i '$a\deb [by-hash=force] https://mirrors.sjtug.sjtu.edu.cn/deepin panda main contrib non-free' /etc/apt/sources.list
+    sudo apt update
+    sudo apt install git python python-dev python3-dev build-essential curl python-pip python3-pip axel zsh oh-my-zsh perl-tk xbuilder mono-xbuild libboost-all-dev lsof samba lighttpd lighttpd-mod-webdav apache2-utils openssh-server autoconf automake curl openssl llvm libcurl4-openssl-dev libssl-dev libjansson-dev automake autotools-dev build-essential -y
+
+    sudo apt install   mycli bpython bpython3 lighttpd doxygen doxygen-latex sqlite3 polipo bash-completion imagemagick graphviz graphviz-dev marp tmux synergy chmsee teamviewer copyq  remarkable bc okular seafile telegram-desktop vlc  sogoupinyin  netease-cloud-music gnome-disk-utility youdao-dict mmv icdiff  code codeblocks codeblocks-dev codeblocks-common pandoc  pandoc-citeproc valgrind vsftpd ncdu tldr cadaver typora mongodb-server mongodb bspwm python3-sdl2 gettext mono-devel python3-tk -y
+    sudo apt-get upgrade -y
+sudo apt install libxcb1-dev libxcb-keysyms1-dev libpango1.0-dev libxcb-util0-dev libxcb-icccm4-dev libyajl-dev libstartup-notification0-dev libxcb-randr0-dev libev-dev libxcb-cursor-dev libxcb-xinerama0-dev libxcb-xkb-dev libxkbcommon-dev libxkbcommon-x11-dev autoconf xutils-dev libtool  -y
+     echo "apt upgrade" 1>&5
+sudo apt install sddm i3blocks  compton feh
+# sudo systemctl disable lightdm
+# sudo systemctl enable sddm
 ```
 
 install window  eject linux because windows will demage the linux
