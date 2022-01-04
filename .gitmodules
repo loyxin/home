@@ -4,3 +4,6 @@
 [submodule ".tmux/plugins/tpm"]
 	path = .tmux/plugins/tpm
 	url = https://github.com/tmux-plugins/tpm.git
+[submodule "program/work"]
+	path = program/work
+	url = ssh://root@gogs-brion-tw.asml.com:2222/loy.xin/download.git

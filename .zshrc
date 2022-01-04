@@ -16,10 +16,10 @@ ZSH_THEME="dracula"
 # HYPHEN_INSENSITIVE="true"
 
 # 如果不想要自动更新，可以取消注释下面的一行
-DISABLE_AUTO_UPDATE="true"
+# DISABLE_AUTO_UPDATE="true"
 
 # 自动更新的时间间隔，单位是天，这里设置 30 天更新一次
-export UPDATE_ZSH_DAYS=30
+# export UPDATE_ZSH_DAYS=30
 
 # 如果不想要 ls 命令输出带颜色，可以取消注释下面的一行
 # DISABLE_LS_COLORS="true"
@@ -83,7 +83,7 @@ source ~/.fzf.zsh
 
 export GIT_SSL_NO_VERIFY=1
 
-source ~/.zshset/.bc
+source ~/program/work/.bc
 
 source ~/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.plugin.zsh
 
