@@ -5,3 +5,16 @@ mcfly
 ncdu
 rg
 tig
+
+language
+ccls
+clangd
+clang-tidy
+clang-format
+bash-language-server
+cmake-language-server
+shellcheck
+shfmt
+cmake-format
+cmakelint
+vint
