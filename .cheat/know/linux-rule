@@ -80,3 +80,8 @@ UNIX 好像只使用 LF(0a)
 ，内核中有一个加载器叫做 binfmt_misc，看名字可以知道，这个加载器用于处理各种各样非标准的其他类型。
 https://zh.wikipedia.org/wiki/Binfmt_misc
 
+/mnt  Mounted file-systems
+/opt  Optional software
+/usr  User-oriented software
+/var  Various other files: mail, spooling and logging
+

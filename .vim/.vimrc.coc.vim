@@ -34,17 +34,18 @@ let g:asyncrun_open = 6
 
 
 let g:coc_global_extensions = [
-\ 'coc-explorer',
-\ 'coc-yank',
-\ 'coc-sh',
-\ 'coc-webview',
-\ 'coc-cmake',
-\ 'coc-tasks',
-\ 'coc-markdown-preview-enhanced',
-\ 'coc-diagnostic',
-\ 'coc-vimlsp',
 \ 'coc-clangd',
+\ 'coc-cmake',
+\ 'coc-diagnostic',
+\ 'coc-explorer',
 \ 'coc-git',
+\ 'coc-markdown-preview-enhanced',
+\ 'coc-sh',
+\ 'coc-snippets',
+\ 'coc-tasks',
+\ 'coc-webview',
+\ 'coc-vimlsp',
+\ 'coc-yank',
 \ ]
 " \ 'coc-rust-analyzer',
 " \ 'coc-translator',
