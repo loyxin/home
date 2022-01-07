@@ -47,7 +47,7 @@ COMPLETION_WAITING_DOTS="true"
 
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
-plugins=(colored-man-pages wd extract cargo vi-mode fancy-ctrl-z catimg colorize copydir gitfast universalarchive timer zsh-autosuggestions)
+plugins=(colored-man-pages wd extract rust vi-mode fancy-ctrl-z catimg colorize copydir gitfast universalarchive timer zsh-autosuggestions)
 # zsh-syntax-highlighting correct command green incorrect red
 # vi-mode esc to insert add vi function
 # fancy-ctrl-z hit Ctrl-z once again to get back to Vim
