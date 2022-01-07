@@ -1,5 +1,5 @@
-autocmd FileType python set tabstop=4 shiftwidth=4 expandtab ai
-autocmd FileType ruby set tabstop=2 shiftwidth=2 softtabstop=2 expandtab ai
+autocmd FileType python set tabstop=4 shiftwidth=4 expandtab autoindent
+autocmd FileType ruby set tabstop=2 shiftwidth=2 softtabstop=2 expandtab autoindent
 
 autocmd BufRead,BufNewFile *.{md,mdown,mkd,mkdn,markdown,mdwn} set filetype=markdown
 autocmd BufRead,BufNewFile *.tex set filetype=tex

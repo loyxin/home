@@ -8,6 +8,7 @@
 			"command": "/usr/bin/ccls",
 			"filetypes": ["c", "cpp", "cuda", "objc", "objcpp"],
 			"rootPatterns": [".ccls-root", "compile_commands.json", ".git"],
+			"disableDiagnostics" : true,
 			"initializationOptions": {
 				"cache": {
 					"directory": ".vscode/.ccls-cache"
@@ -18,13 +19,11 @@
 				"highlight": {
 					"lsRanges": true
 				},
-				"clang": {
-					"extraArgs": [
-						"-I",
-						"-Werror=return-type",
-						"-Werror=return-local-addr",
-						"-Wno-everything"
-					]
+				"index.threads": 16,
+				"linters": {
+					"cppcheck": {
+						"command": "~/program/install/bin/cppcheck"
+					}
 				}
 			}
 		},
@@ -47,7 +46,7 @@
 	},
 	"clangd": {
 		"filetypes": ["c", "cpp", "cuda", "objc", "objcpp"],
-		"clangd.arguments": [
+		"arguments": [
 			"--background-index",
 			"--compile-commands-dir=build_root",
 			"--enable-config",
@@ -56,6 +55,9 @@
 			"--clang-tidy-checks=performance-*,bugprone-*,boost-*,google-*,modernize-*,readability-*"
 		],
 		"semanticHighlighting": true,
+		"disableDiagnostics": false,
+		"disableCompletion": true,
+		"disableSnippetCompletion": true
 	},
 	"coc.preferences.semanticTokensHighlights": false,
 	"cmake.lsp.enable": true,
