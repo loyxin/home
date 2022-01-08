@@ -85,3 +85,6 @@ https://zh.wikipedia.org/wiki/Binfmt_misc
 /usr  User-oriented software
 /var  Various other files: mail, spooling and logging
 
+LIBRARY_PATH is used by gcc before compilation to search directories containing static and shared libraries that need to be linked to your program.
+
+LD_LIBRARY_PATH is used by your program to search directories containing shared libraries after it has been successfully compiled and linked.
