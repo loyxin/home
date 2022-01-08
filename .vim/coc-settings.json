@@ -22,7 +22,7 @@
 				"index.threads": 16,
 				"linters": {
 					"cppcheck": {
-						"command": "~/program/install/bin/cppcheck"
+						"command": "cppcheck"
 					}
 				}
 			}
@@ -47,12 +47,13 @@
 	"clangd": {
 		"filetypes": ["c", "cpp", "cuda", "objc", "objcpp"],
 		"arguments": [
-			"--background-index",
+			"--clang-tidy",
 			"--compile-commands-dir=build_root",
 			"--enable-config",
+			"--header-insertion-decorators",
+			"--header-insertion=iwyu",
+			"--background-index",
 			"-j=12",
-			"--clang-tidy",
-			"--clang-tidy-checks=performance-*,bugprone-*,boost-*,google-*,modernize-*,readability-*"
 		],
 		"semanticHighlighting": true,
 		"disableDiagnostics": false,
@@ -69,7 +70,6 @@
 		"vim": "vint",
 		"sh": "shellcheck",
 		"cmake": ["cmake-lint", "cmakelint"],
-		"cpp": ["cpplint", "cppcheck"]
 	},
 	"diagnostic-languageserver.formatFiletypes": {
 		"sh": "shfmt",
