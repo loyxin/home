@@ -14,22 +14,6 @@ control ^ 切换头文件和源文件
 :DoxAuthor Author 将光标放在合适的地方
 :DoxUndoc(DEBUG)
 
-### markdown
-[[ "跳转上一个标题
-]] "跳转下一个标题
-]c "跳转到当前标题
-]u "跳转到副标题
-`:TableFormat`: Format the table under the cursor
-:HeaderDecrease
-:Toc 显示 vertical 标题 enter 进入对应的
-:Toch horiz
-:InsertToc 无顺序数字显示
-:InsertNToc 有数字显示
-
-### rust
-:RustFmt
-:RustTest
-
 ### fastfold
 check command with markdown
 za                  切换折叠
@@ -49,6 +33,42 @@ zE                  删除所有折叠
 zf                  创建代码折叠
 zF                  指定行数创建折叠
 zj 移动至下一个折叠 zk 移动至上一个折叠
+
+### markdown
+[[ "跳转上一个标题
+]] "跳转下一个标题
+]c "跳转到当前标题
+]u "跳转到副标题
+`:TableFormat`: Format the table under the cursor
+:HeaderDecrease
+:Toc 显示 vertical 标题 enter 进入对应的
+:Toch horiz
+:InsertToc 无顺序数字显示
+:InsertNToc 有数字显示
+
+
+### surround
+
+删除包围符号的命令是ds,后面加的字符表示要删除的符号，比如：
+"Hello world!"           ds"         Hello world!
+替换包围符号的命令是cs,命令后跟两个参数，分别是被替换的符号和需要使用的符号。比如
+"Hello world!"           cs"'        'Hello world!'
+添加包围符号的命令是ys(ys可以记为you surround)，命令后同样跟两个参数，第一个是一个vim“动作”（motion）或者是一个文本对象,其中motion即vim动作，比如说w向后一个单词。文本对象简单的来说主要是来通过一些分隔符来标识一段文本，比如iw就是一个文本对象，即光标下的单词。
+Hello world!             ysiw)       Hello (world)!
+
+remember cs 替换 ds 删除
+cs"'
+
+### Quickfix 窗口
+
+:copen              打开 quickfix 窗口（查看编译，grep等信息）
+:copen 10           打开 quickfix 窗口，并且设置高度为 10
+:cclose             关闭 quickfix 窗口
+:cfirst             跳到 quickfix 中第一个错误信息
+:clast              跳到 quickfix 中最后一条错误信息
+:cc [nr]            查看错误 [nr]
+:cnext              跳到 quickfix 中下一个错误信息
+:cprev              跳到 quickfix 中上一个错误信息
 
 ### fzf
 install ag rg perl
@@ -144,30 +164,6 @@ m<S-[0-9]>:Remove all markers of the same type
 ]=: Jump to next line having a marker of any type
 [=: Jump to prev line having a marker of any type
 
-
-### surround
-
-删除包围符号的命令是ds,后面加的字符表示要删除的符号，比如：
-"Hello world!"           ds"         Hello world!
-替换包围符号的命令是cs,命令后跟两个参数，分别是被替换的符号和需要使用的符号。比如
-"Hello world!"           cs"'        'Hello world!'
-添加包围符号的命令是ys(ys可以记为you surround)，命令后同样跟两个参数，第一个是一个vim“动作”（motion）或者是一个文本对象,其中motion即vim动作，比如说w向后一个单词。文本对象简单的来说主要是来通过一些分隔符来标识一段文本，比如iw就是一个文本对象，即光标下的单词。
-Hello world!             ysiw)       Hello (world)!
-
-remember cs 替换 ds 删除
-cs"'
-
-### Quickfix 窗口
-
-:copen              打开 quickfix 窗口（查看编译，grep等信息）
-:copen 10           打开 quickfix 窗口，并且设置高度为 10
-:cclose             关闭 quickfix 窗口
-:cfirst             跳到 quickfix 中第一个错误信息
-:clast              跳到 quickfix 中最后一条错误信息
-:cc [nr]            查看错误 [nr]
-:cnext              跳到 quickfix 中下一个错误信息
-:cprev              跳到 quickfix 中上一个错误信息
-
 ### other tips
 插入模式下ctrl + o可以让你执行一次正常模式下的命令
 "ayy 就是复制当前行到 "a 字母寄存器中
@@ -240,12 +236,6 @@ gf                  打开名称为光标下文件名的文件
 '.                  回到上次编辑的位置
 ```
 
-### bufexplorer插件
-,be打开历史文件列表
-,bs水平新建历史文件列表窗口，
-,bv垂直新建历史文件列表
-'<Leader>bt' (toggle open / close)  or
-
 ### vim-terminal-help
 
 - `ALT` + `=`: toggle terminal below.
@@ -256,3 +246,14 @@ gf                  打开名称为光标下文件名的文件
 - `ALT` + `SHIFT` + `n`: move to the previous window.
 - `ALT` + `-`: paste register 0 to terminal.
 - `ALT` + `q`: switch to terminal normal mode.
+
+### rust
+:RustFmt
+:RustTest
+
+### bufexplorer插件
+,be打开历史文件列表
+,bs水平新建历史文件列表窗口，
+,bv垂直新建历史文件列表
+'<Leader>bt' (toggle open / close)  or
+
