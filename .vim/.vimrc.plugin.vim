@@ -114,6 +114,7 @@ Plug 'luochen1990/rainbow', {'dir' : '$pluginstalldir/colors/rainbow', 'descript
 
 " other{{{
 Plug 'skywind3000/vim-keysound', {'dir': '$pluginstalldir/tool/vim-keysound', 'description': 'key sound', 'on' : []}
+Plug 'rlue/vim-barbaric', {'dir': '$pluginstalldir/tool/vim-barbaric'}
 " }}}
 
 call plug#end()

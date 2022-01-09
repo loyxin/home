@@ -99,3 +99,8 @@ let g:formatterpath = ['$myvimhome/.vim/.clang-format']
 " one line setting{{{
 let g:NERDSpaceDelims=1 " 注释符号后面空一格
 " }}}
+
+" barbaric{{{
+" normal 模式下中英文输入法
+let g:barbaric_ime = 'fcitx'
+" }}}
