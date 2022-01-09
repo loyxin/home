@@ -18,3 +18,11 @@ Valgrind 是运行在Linux上一套基于仿真技术的程序调试和分析工
 ### usage
 
 ` valgrind --log-file=vargrind.log --tool=memcheck --leak-check=full ./main(运行程序)`
+
+definitely lost：如果一个block在程序在退出后，memcheck找不到指向它的pointer，一般是由于在代码中对该block没有free造成的，要重点关注。
+
+"indirectly lost"：间接丢失。当使用了含有指针成员的类或结构时可能会报这个错误。这类错误无需直接修复，他们总是与"definitely lost"一起出现，只要修复"definitely lost"即可。
+
+possibly lost：在程序退出时，memcheck发现仍有 interior pointer（如果一个pointer指向一个block的中间某个位置）指向一个block，那么该block被认为是possibly lost。
+
+still reachable：如果memcheck发现仍有start pointer指向一个block，那么该block就是still reachable。

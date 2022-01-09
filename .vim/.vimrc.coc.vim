@@ -42,6 +42,7 @@ let g:coc_global_extensions = [
 \ 'coc-markdown-preview-enhanced',
 \ 'coc-sh',
 \ 'coc-snippets',
+\ 'coc-pairs',
 \ 'coc-tasks',
 \ 'coc-webview',
 \ 'coc-vimlsp',

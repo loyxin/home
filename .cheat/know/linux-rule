@@ -16,6 +16,12 @@ setuid如何设置？
 chmod u+s file ；
 
 chmod g+s file; setgid
+Set UID (SUID)；設置使文件在執行階段具有文件所有者的權限。
+Set GID (SGID)：只對目錄有效。
+Sticky Bit (SBIT)：防刪除屬性，只對目錄有效
+4 為 SUID
+2 為 SGID
+1 為 SBIT
 简要说明命令的作用 whatis command
 更加详细的说明文档 info command
 查看路径 which command

@@ -53,7 +53,7 @@
 			"--header-insertion-decorators",
 			"--header-insertion=iwyu",
 			"--background-index",
-			"-j=12",
+			"-j=12"
 		],
 		"semanticHighlighting": true,
 		"disableDiagnostics": false,
@@ -68,11 +68,11 @@
 	"diagnostic-languageserver.filetypes": {
 		"vim": "vint",
 		"sh": "shellcheck",
-		"cmake": ["cmake-lint", "cmakelint"],
+		"cmake": ["cmake-lint", "cmakelint"]
 	},
 	"diagnostic-languageserver.formatFiletypes": {
 		"sh": "shfmt",
-		"cmake": "cmake-format",
+		"cmake": "cmake-format"
 	}
 
 }

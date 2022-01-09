@@ -16,20 +16,31 @@ so $myvimhome/.vim/.vimrc.once.vim
 " Set mapleader
 let mapleader=","
 let g:mapleader=','
+" F1 help F2 rename F11 fullscreen
+" noremap <F3> :Autoformat<CR>
+" F5 mouse toggle
+" F6 line relative toggle
+" F7 cpp 函数类层级
+set pastetoggle=<F4>
+nnoremap <F7> :Vista!!<CR>
+nnoremap <F8> :UndotreeToggle<CR>
+" 设置 F10 打开/关闭 Quickfix 窗口
+nnoremap <F10> :call asyncrun#quickfix_toggle(6)<cr>
+" ALT-U / ALT-D 可以让旁边的参考窗口上下滚屏
+noremap <M-u> <C-w>p<C-u><C-w>p
+noremap <M-d> <C-w>p<C-d><C-w>p
 " Switching between buffers.
-" Ctrl-w w 激活下一个窗口
-" Ctrl-w j 激活下方窗口
-" Ctrl-w k 激活上方窗口
-" Ctrl-w h 激活左侧窗口
-" Ctrl-w l 激活右侧窗口
-nnoremap <leader>h <C-W>h
-nnoremap <leader>j <C-W>j
-nnoremap <leader>k <C-W>k
-nnoremap <leader>l <C-W>l
-" 设置快捷键将选中文本块复制至系统剪贴板
-vnoremap <Leader>y "+y
-" " 设置快捷键将系统剪贴板内容粘贴至 vim
-nnoremap <Leader>p "+p
+" from vim-terminal-help
+" alt-shift-h move left
+" alt-shift-l move right
+" alt-shift-k move above
+" alt-shift-j move below
+" drop file in terminal to open file
+" - `ALT` + `=`: toggle terminal below.
+" - `ALT` + `SHIFT` + `n`: move to the previous window.
+" - `ALT` + `-`: paste register 0 to terminal.
+" - `ALT` + `q`: switch to terminal normal mode.
+nmap <leader>s <Plug>(wildfire-quick-select)
 " alt+number select buffer
 nmap <M-1> <Plug>AirlineSelectTab1
 nmap <M-2> <Plug>AirlineSelectTab2
@@ -42,10 +53,15 @@ nmap <M-8> <Plug>AirlineSelectTab8
 nmap <M-9> <Plug>AirlineSelectTab9
 nmap <M-0> <Plug>AirlineSelectTab0
 nmap <M--> <Plug>AirlineSelectPrevTab
-" ALT-U / ALT-D 可以让旁边的参考窗口上下滚屏
-noremap <M-u> <C-w>p<C-u><C-w>p
-noremap <M-d> <C-w>p<C-d><C-w>p
-
+" Save
+nnoremap S :w<CR>
+" 设置快捷键将选中文本块复制至系统剪贴板
+vnoremap <Leader>y "+y
+" " 设置快捷键将系统剪贴板内容粘贴至 vim
+nnoremap <Leader>p "+p
+" n 始终为向后搜索，N 始终为向前搜索
+nnoremap <expr> n  'Nn'[v:searchforward]
+nnoremap <expr> N  'nN'[v:searchforward]
 
 function! LoadmyCoc(timer)
 	call  plug#load('coc.nvim')
@@ -59,19 +75,6 @@ endfunction
 
 nnoremap <leader>lc :call LoadmyCoc()<CR>
 call timer_start(200, 'LoadmyCoc') "delay 2000ms load
-" Save
-nnoremap S :w<CR>
-
-" F1 help F2 rename F11 fullscreen
-" noremap <F3> :Autoformat<CR>
-" F5 mouse toggle
-" F6 line relative toggle
-" F7 cpp 函数类层级
-set pastetoggle=<F4>
-nnoremap <F7> :Vista!!<CR>
-nnoremap <F8> :UndotreeToggle<CR>
-" 设置 F10 打开/关闭 Quickfix 窗口
-nnoremap <F10> :call asyncrun#quickfix_toggle(6)<cr>
 
 imap <c-x><c-f> <plug>(fzf-complete-path)
 nnoremap <leader><tab> <plug>(fzf-maps-n)
@@ -92,24 +95,6 @@ noremap <LEADER><LEADER> <Esc>/<++><CR>:nohlsearch<CR>c4l
 " map <Right> <Nop>
 " map <Up> <Nop>
 " map <Down> <Nop>
-" n 始终为向后搜索，N 始终为向前搜索
-nnoremap <expr> n  'Nn'[v:searchforward]
-nnoremap <expr> N  'nN'[v:searchforward]
-" <M-p> : Toggle Autopairs (g:AutoPairsShortcutToggle)
-" <M-e> : Fast Wrap (g:AutoPairsShortcutFastWrap)
-" <M-n> : Jump to next closed pair (g:AutoPairsShortcutJump)
-" <M-b> : BackInsert (g:AutoPairsShortcutBackInsert)
-nmap <leader>s <Plug>(wildfire-quick-select)
-
-
-" - `ALT` + `=`: toggle terminal below.
-" - `ALT` + `SHIFT` + `h`: move to the window on the left.
-" - `ALT` + `SHIFT` + `l`: move to the window on the right.
-" - `ALT` + `SHIFT` + `j`: move to the window below.
-" - `ALT` + `SHIFT` + `k`: move to the window above.
-" - `ALT` + `SHIFT` + `n`: move to the previous window.
-" - `ALT` + `-`: paste register 0 to terminal.
-" - `ALT` + `q`: switch to terminal normal mode.
 
 " coc {{{
 nmap <silent> gy <Plug>(coc-type-definition)
