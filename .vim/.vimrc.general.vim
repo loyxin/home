@@ -77,7 +77,8 @@ set undofile
 set   mouse=c
 set history=1000      " Store a ton of history (default is 20)
 " 设置系统复制
-set clipboard=unnamedplus
+" set clipboard=unnamedplus
+" set clipboard=exclude:.*
 "}}}
 
 " other setting{{{

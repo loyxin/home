@@ -1,6 +1,6 @@
 alias grep='grep --color=auto --exclude-dir={.git,.svn}'
 alias wget='wget -c'
-alias vi='vim'
+alias vi='vim -X'
 alias s='sudo'
 alias ls='lsd'
 alias l='ls -lFh'     #size,show type,human readable
