@@ -58,6 +58,10 @@ Plug 'rust-lang/rust.vim', {
 			\ 'for' : ['rust', 'rs'],
 			\ 'dir': '$pluginstalldir/language/rust/rust.vim'
 			\ }
+
+Plug 'tjdevries/coc-zsh', {
+		\ 'dir': '$pluginstalldir/tool/coc-zsh'
+	  	\ }
 " }}}
 
 " file{{{
@@ -99,6 +103,13 @@ Plug 'scrooloose/nerdcommenter', {
 			\ 'dir': '$pluginstalldir/tool/nerdcomment',
 			\ 'on': []
 			\ }
+Plug 'francoiscabrol/ranger.vim', {
+		\ 'dir': '$pluginstalldir/tool/ranger.vim',
+	  	\ }
+Plug 'TaDaa/vimade', {
+		\ 'dir': '$pluginstalldir/tool/vimade',
+		\ 'description': '聚焦窗口'
+	  	\ }
 " }}}
 
 " 外观{{{
@@ -114,7 +125,7 @@ Plug 'luochen1990/rainbow', {'dir' : '$pluginstalldir/colors/rainbow', 'descript
 
 " other{{{
 Plug 'skywind3000/vim-keysound', {'dir': '$pluginstalldir/tool/vim-keysound', 'description': 'key sound', 'on' : []}
-Plug 'rlue/vim-barbaric', {'dir': '$pluginstalldir/tool/vim-barbaric'}
+Plug 'rlue/vim-barbaric', {'dir': '$pluginstalldir/tool/vim-barbaric', 'description' : '输入法'}
 " }}}
 
 call plug#end()
