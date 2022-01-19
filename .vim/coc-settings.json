@@ -53,6 +53,7 @@
 			"--header-insertion-decorators",
 			"--header-insertion=iwyu",
 			"--background-index",
+			"--cross-file-rename",
 			"-j=12"
 		],
 		"semanticHighlighting": true,
