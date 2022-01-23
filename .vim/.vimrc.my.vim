@@ -196,4 +196,18 @@ highlight default ExtraWhitespace ctermbg=darkred guibg=darkred
 autocmd ColorScheme * highlight default ExtraWhitespace ctermbg=darkred guibg=darkred
 autocmd BufRead,BufNew * if 1 | match ExtraWhitespace /\\\@<![\u3000[:space:]]\+$/ | else | match ExtraWhitespace /^^/ | endif
 
+" {{{
+let t:is_transparent = 0
+function! Toggle_transparent_background()
+  if t:is_transparent == 0
+    hi Normal guibg=NONE ctermbg=NONE
+    let t:is_transparent = 1
+  else
+	colorscheme molokai
+    let t:is_transparent = 0
+  endif
+endfunction
+nnoremap <F1> :call Toggle_transparent_background()<CR>
+" }}}
+
 " }}}

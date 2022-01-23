@@ -60,6 +60,7 @@ Plug 'rust-lang/rust.vim', {
 			\ }
 
 Plug 'tjdevries/coc-zsh', {
+		\ 'on': [],
 		\ 'dir': '$pluginstalldir/tool/coc-zsh'
 	  	\ }
 " }}}
@@ -67,7 +68,10 @@ Plug 'tjdevries/coc-zsh', {
 " file{{{
 Plug 'junegunn/fzf', { 'dir': '$pluginstalldir/.fzf', 'on' : []}
 Plug 'junegunn/fzf.vim', {'dir' : '$pluginstalldir/tool/fzf.vim', 'on' : []}
-Plug 'mbbill/undotree', {'dir':'$pluginstalldir/tool/undotree', 'description' : 'no config no command'}
+" Plug 'mbbill/undotree', {'dir':'$pluginstalldir/tool/undotree', 'description' : 'no config no command'}
+Plug 'simnalamburt/vim-mundo', {
+		\ 'dir' : '$pluginstalldir/tool/vim-mundo'
+	  	\ }
 " }}}
 
 " tool{{{
@@ -76,10 +80,17 @@ Plug 'mbbill/undotree', {'dir':'$pluginstalldir/tool/undotree', 'description' : 
 " Plug 'jiangmiao/auto-pairs', {'dir':'$pluginstalldir/tool/auto-pairs', 'description' : 'no config no command 括号补全', 'on': []}
 Plug 'APZelos/blamer.nvim', {
     \ 'dir' : '$pluginstalldir/tool/git/blamer.nvim',
-	\ 'on' : [],
+	\ 'on' : ['BlamerToggle'],
 	\ 'description' : 'show git blame :BlamerToggle'
 	\ }
 Plug 'Chiel92/vim-autoformat', {'on' : [], 'dir' : '$pluginstalldir/tool/vim-autoformat'}
+" Plug 'andymass/vim-matchup', {
+		" \ 'dir': '$pluginstalldir/tool/vim-matchup'
+		  " \ }
+Plug 'mhinz/vim-grepper', {
+		\ 'on': ['Grepper', '<plug>(GrepperOperator)'],
+		\ 'dir': '$pluginstalldir/tool/vim-grepper'
+	  	\ }
 Plug 'konfekt/fastfold', {'dir':'$pluginstalldir/tool/fastfold', 'on': []}
 Plug 'gcmt/wildfire.vim', {
 	\ 'dir' : '$pluginstalldir/tool/wildfire.vim',
@@ -126,6 +137,11 @@ Plug 'luochen1990/rainbow', {'dir' : '$pluginstalldir/colors/rainbow', 'descript
 " other{{{
 Plug 'skywind3000/vim-keysound', {'dir': '$pluginstalldir/tool/vim-keysound', 'description': 'key sound', 'on' : []}
 Plug 'rlue/vim-barbaric', {'dir': '$pluginstalldir/tool/vim-barbaric', 'description' : '输入法'}
+Plug 'christoomey/vim-tmux-navigator', {
+		\ 'dir': '$pluginstalldir/tool/vim-tmux-navigator',
+		\ 'on': [],
+		\ 'description': 'c-h tmux 切换'
+	  	\ }
 " }}}
 
 call plug#end()
@@ -155,6 +171,7 @@ function! LoadPlugSe(timer)
 	call plug#load('asyncrun.vim')
 	call plug#load('asyncrun.extra')
 	call plug#load('asynctasks.vim')
+	call plug#load('vim-tmux-navigator')
 	" call plug#load('vim-keysound')
 " By default vista.vim never run if you don't call it explicitly.
 "
