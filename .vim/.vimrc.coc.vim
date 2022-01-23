@@ -47,6 +47,8 @@ let g:coc_global_extensions = [
 \ 'coc-webview',
 \ 'coc-vimlsp',
 \ 'coc-yank',
+\ 'coc-xml',
+\ 'coc-react-refactor',
 \ ]
 " \ 'coc-rust-analyzer',
 " \ 'coc-translator',

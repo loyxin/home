@@ -1,4 +1,5 @@
 {
+	"coc.preferences.colorSupport": false,
 	"suggest.labelMaxLength": 50,
 	"http.proxyStrictSSL": false,
 	"suggest.defaultSortMethod": "none",

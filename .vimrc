@@ -23,7 +23,7 @@ let g:mapleader=','
 " F7 cpp 函数类层级
 set pastetoggle=<F4>
 nnoremap <F7> :Vista!!<CR>
-nnoremap <F8> :UndotreeToggle<CR>
+nnoremap <F8> :MundoToggle<CR>
 " 设置 F10 打开/关闭 Quickfix 窗口
 nnoremap <F10> :call asyncrun#quickfix_toggle(6)<cr>
 " ALT-U / ALT-D 可以让旁边的参考窗口上下滚屏
@@ -35,6 +35,7 @@ noremap <M-d> <C-w>p<C-d><C-w>p
 " alt-shift-l move right
 " alt-shift-k move above
 " alt-shift-j move below
+" Control + hjkl tmux move
 " drop file in terminal to open file
 " - `ALT` + `=`: toggle terminal below.
 " - `ALT` + `SHIFT` + `n`: move to the previous window.
@@ -66,6 +67,7 @@ nnoremap <expr> N  'nN'[v:searchforward]
 function! LoadmyCoc(timer)
 	call  plug#load('coc.nvim')
 	call plug#load('vista.vim')
+	call plug#load('coc-zsh')
 	call plug#load('vim-lsp-cxx-highlight')
 " Make <CR> auto-select the first completion item and notify coc.nvim to
 " format on enter, <cr> could be remapped by other vim plugin
@@ -131,6 +133,9 @@ nmap <Leader>er <Cmd>call CocAction('runCommand', 'explorer.doAction', 'closest'
 " swith header and source
 nnoremap <silent> <C-^> :CocCommand clangd.switchSourceHeader<cr>
 
+autocmd CursorHold * silent call CocActionAsync('highlight')
+nmap <leader>rf <Plug>(coc-refactor)
+
 " navigate chunks of current buffer
 nmap [g <Plug>(coc-git-prevchunk)
 nmap ]g <Plug>(coc-git-nextchunk)
@@ -173,7 +178,9 @@ imap <C-j> <Plug>(coc-snippets-expand-jump)
 " Use <leader>x for convert visual selected code to snippet
 xmap <leader>x  <Plug>(coc-convert-snippet)
 
-nmap <leader>rf <Plug>(coc-refactor)
+xmap <leader>a  <Plug>(coc-codeaction-selected)
+nmap <leader>a  <Plug>(coc-codeaction-selected)
+
 " }}}
 
 "}}}
