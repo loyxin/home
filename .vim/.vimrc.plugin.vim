@@ -132,6 +132,7 @@ Plug 'vim-airline/vim-airline',{'dir': '$pluginstalldir/colors/vim-airline', 'de
 " }}}
 Plug 'nathanaelkane/vim-indent-guides', {'description':'对齐代码的虚线 config in nochange', 'dir': '$pluginstalldir/colors/vim-indent-guides'}
 Plug 'luochen1990/rainbow', {'dir' : '$pluginstalldir/colors/rainbow', 'description' :'\{\} config in nochange'}
+Plug 'ryanoasis/vim-devicons',{'dir': '$pluginstalldir/colors/vim-devicons', 'description': '图标', 'on':[]}
 "}}}
 
 " other{{{
@@ -151,6 +152,7 @@ function! LoadPlug(timer)
 	" call plug#load('vim-signify')
 	" call plug#load('vim-trailing-whitespace')
 	call plug#load('vim-airline')
+	call plug#load('vim-devicons')
 	" call plug#load('accelerated-smooth-scroll')
 endfunction
 
