@@ -38,7 +38,8 @@ sudo pacman -S gst-libav phonon-qt5-gstreamer gst-plugins-good qt5-quickcontrols
 git clone https://github.com/3ximus/aerial-sddm-theme.git
 sudo mv aerial-sddm-theme /usr/share/sddm/themes/aerial
 
-sudo pacman -S cmake llvm neofetch ranger ncdu yay yarn acpilight conky simplescreenrecoder screenkey w3m
+sudo pacman -S cmake llvm neofetch ranger ncdu yay yarn acpilight conky simplescreenrecoder screenkey
+sudo pacman -S catdoc docx2txt w3m highlight
 # screenkey 键盘记录 https://gitlab.com/wavexx/screenkey
 # simplescreenrecoder 一款让你能够从你的屏幕录制简短的动画 GIF 图片
 # peek 一款让你能够从你的屏幕录制简短的动画 GIF 图片
@@ -56,7 +57,7 @@ yay --aururl "https://aur.tuna.tsinghua.edu.cn" --save
 # curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
 sudo pacman -S fd ripgrep dust procs wqy-microhei adobe-source-han-sans-cn-fonts ttf-nerd-fonts-symbols dmenu
 sudo pacman -S ccls mate-media dolphin
-sudo pacman -S adobe-source-code-pro-fonts adobe-source-han-sans-cn-fonts adobe-source-han-serif-cn-fonts adobe-source-sans-fonts adobe-source-serif-fonts w3m ttf-font-awesome
+sudo pacman -S adobe-source-code-pro-fonts adobe-source-han-sans-cn-fonts adobe-source-han-serif-cn-fonts adobe-source-sans-fonts adobe-source-serif-fonts ttf-font-awesome
 sudo systemctl enable bluetooth.service
 # vint shellcheck cmakelint shfmt cmake-format python-pip npm i -g bash-language-server
 # npm i -g js-beautify
