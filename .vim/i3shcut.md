@@ -3,6 +3,8 @@ mod + shift + h 帮助
 mod + shift + a 截图
 mod + shift + z 快速启动栏 dmenu
 mod + shift + e 图形化文件
+alt +         a 透明终端
+alt +         t focus
 mod + 		  e	ranger
 mod +		  q 关闭窗口
 mod + 		  t 切换浮动和不浮动
@@ -27,6 +29,9 @@ albert
 
 ## alacritty
 Ctrl + Shift + Space vim-mode
+Ctrl + - 字体变小
+Ctrl + + 字体变大
+
 
 ## zsh
 ### write .gitignore tool
