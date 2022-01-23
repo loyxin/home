@@ -97,6 +97,7 @@ noremap <LEADER><LEADER> <Esc>/<++><CR>:nohlsearch<CR>c4l
 " map <Right> <Nop>
 " map <Up> <Nop>
 " map <Down> <Nop>
+map <space> <Nop>
 
 " coc {{{
 nmap <silent> gy <Plug>(coc-type-definition)
@@ -128,12 +129,14 @@ nnoremap <silent> <space>s  :<C-u>CocList -I symbols<cr>
 
 nnoremap <silent> <space>y  :<C-u>CocList -A --normal yank<cr>
 nnoremap <space>e <Cmd>CocCommand explorer<CR>
+nnoremap <space>r :Ranger<CR>
 nmap <Leader>er <Cmd>call CocAction('runCommand', 'explorer.doAction', 'closest', ['reveal:0'], [['relative', 0, 'file']])<CR>
 
 " swith header and source
 nnoremap <silent> <C-^> :CocCommand clangd.switchSourceHeader<cr>
 
-autocmd CursorHold * silent call CocActionAsync('highlight')
+" autocmd CursorHold * silent call CocActionAsync('highlight')
+nmap <space>h :call CocActionAsync('highlight')<cr>
 nmap <leader>rf <Plug>(coc-refactor)
 
 " navigate chunks of current buffer
