@@ -22,14 +22,14 @@ echo "chsh -s /bin/zsh"
 # root link
 # .zshrc .vimrc .zshset .oh-my-zsh .vim
 
-ln ~/bin/conf/alacritty.yml ~/.config/alacritty.yml
-ln ~/bin/conf/compton.conf ~/.config/compton.conf
+ln -s ~/bin/conf/alacritty.yml ~/.config/alacritty.yml
+ln -s ~/bin/conf/compton.conf ~/.config/compton.conf
 ln -s ~/bin/conf/neofetch ~/.config/neofetch
 ln -s ~/bin/conf/ranger ~/.config/ranger
 ln -s ~/bin/conf/polybar ~/.config/polybar
 ln -s ~/bin/conf/i3 ~/.config/i3
-cp -r ~/bin/conf/background ~/.config/.background
-cp ~/bin/conf/conkyrc ~/.conkyrc
+ln -s ~/bin/conf/background ~/.config/.background
+ln -s ~/bin/conf/conkyrc ~/.conkyrc
 
 echo "need passwd"
 sudo ln ~/bin/conf/sddm.conf /etc/sddm.conf
