@@ -50,3 +50,4 @@ git cherry-pick A^..B
 git push origin refs/remotes/gogs/master:refs/heads/master
 
 source to destination
+git push --mirror origin
