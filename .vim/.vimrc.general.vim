@@ -44,7 +44,6 @@ set   ignorecase "搜索忽略大小写
 set   smartcase " 有一个以上的大写字母仍大小写敏感
 set   incsearch " 输入查找内容时进行匹配
 "显示行号
-set   number
 set   relativenumber
 set   ruler  "显示标尺 显示当前行号列号
 set   scrolloff=5 " 移动buffer顶部底部保持5行距离

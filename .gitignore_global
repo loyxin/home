@@ -22,3 +22,4 @@ db.ini
 *.a
 
 .cache
+__init__.py

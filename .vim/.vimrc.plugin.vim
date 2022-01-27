@@ -116,16 +116,18 @@ Plug 'scrooloose/nerdcommenter', {
 			\ }
 Plug 'francoiscabrol/ranger.vim', {
 		\ 'dir': '$pluginstalldir/tool/ranger.vim',
+		\ 'on': []
 	  	\ }
 Plug 'TaDaa/vimade', {
 		\ 'dir': '$pluginstalldir/tool/vimade',
+		\ 'on': [],
 		\ 'description': '聚焦窗口'
 	  	\ }
 " }}}
 
 " 外观{{{
 " 配色方案{{{
-Plug 'dracula/vim', {'dir': '$pluginstalldir/colors/dracula/vim', 'description' : 'no config no command for airline theme'}
+Plug 'dracula/vim', {'dir': '$pluginstalldir/colors/dracula/vim', 'description' : 'no config no command for airline theme', 'on': []}
 " Vim状态栏插件
 Plug 'vim-airline/vim-airline',{'dir': '$pluginstalldir/colors/vim-airline', 'description': 'config in nochange', 'on' : []}
 " Plug 'vim-airline/vim-airline-themes',{'dir': '$pluginstalldir/colors/vim-airline-themes'}
@@ -151,8 +153,11 @@ function! LoadPlug(timer)
 	" call plug#load('vim-diff-enhanced')
 	" call plug#load('vim-signify')
 	" call plug#load('vim-trailing-whitespace')
+	call plug#load('vim')
 	call plug#load('vim-airline')
 	call plug#load('vim-devicons')
+	call plug#load('ranger.vim')
+	call plug#load('vimade')
 	" call plug#load('accelerated-smooth-scroll')
 endfunction
 
