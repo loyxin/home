@@ -201,9 +201,18 @@ let t:is_transparent = 0
 function! Toggle_transparent_background()
   if t:is_transparent == 0
     hi Normal guibg=NONE ctermbg=NONE
+	:AirlineToggle
+	:set norelativenumber
+	:set laststatus=0
+	:CocCommand git.toggleGutters
     let t:is_transparent = 1
   else
+	:set relativenumber
+	:set laststatus=2
+	:AirlineToggle
+	:call plug#load('vim')
 	colorscheme molokai
+	:CocCommand git.toggleGutters
     let t:is_transparent = 0
   endif
 endfunction

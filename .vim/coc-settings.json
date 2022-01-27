@@ -76,6 +76,7 @@
 	"diagnostic-languageserver.formatFiletypes": {
 		"sh": "shfmt",
 		"cmake": "cmake-format"
-	}
+  },
+  "git.enableGutters": true
 
 }
