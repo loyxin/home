@@ -203,11 +203,13 @@ function! Toggle_transparent_background()
     hi Normal guibg=NONE ctermbg=NONE
 	:AirlineToggle
 	:set norelativenumber
+	:set nonumber
 	:set laststatus=0
 	:CocCommand git.toggleGutters
     let t:is_transparent = 1
   else
 	:set relativenumber
+	:set number
 	:set laststatus=2
 	:AirlineToggle
 	:call plug#load('vim')
