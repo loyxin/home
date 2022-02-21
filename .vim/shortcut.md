@@ -2,37 +2,21 @@
 
 space e 文件管理器
 文件管理器 ? -> help
-space o outline
-space s symbol
-space y yank
-control ^ 切换头文件和源文件
-
-### Dox.vim
-:Dox 函数/类注释 将光标放在 function 或者 class 的名字所在的一行
-:DoxBlock 插入注释块
-:DoxLic 生成 License 的地方
-:DoxAuthor Author 将光标放在合适的地方
-:DoxUndoc(DEBUG)
 
 ### fastfold
 check command with markdown
 za                  切换折叠
 zA                  递归切换折叠
-zc                  折叠光标下代码
-zC                  折叠光标下所有代码
-zi                  切换折叠
-zm                  所有代码折叠一层
-zr                  所有代码打开一层
-zn                  折叠 none，重置 foldenable 并打开所有代码
-zN                  折叠 normal，重置 foldenable 并恢复所有折叠
-zo                  打开一层代码
-zO                  打开光标下所有代码折叠
-zd                  删除光标下折叠
-zD                  递归删除所有折叠
-zE                  删除所有折叠
 zf                  创建代码折叠
 zF                  指定行数创建折叠
+zd                  删除光标下折叠
+zD                  递归删除所有折叠
 zj 移动至下一个折叠 zk 移动至上一个折叠
+zm                  所有代码折叠一层
+zM                  所有代码折叠
+zr                  所有代码打开一层
+zR                  所有代码打开
+zE                  删除所有折叠
 
 ### markdown
 [[ "跳转上一个标题
@@ -69,6 +53,13 @@ cs"'
 :cc [nr]            查看错误 [nr]
 :cnext              跳到 quickfix 中下一个错误信息
 :cprev              跳到 quickfix 中上一个错误信息
+
+### Dox.vim
+:Dox 函数/类注释 将光标放在 function 或者 class 的名字所在的一行
+:DoxBlock 插入注释块
+:DoxLic 生成 License 的地方
+:DoxAuthor Author 将光标放在合适的地方
+:DoxUndoc(DEBUG)
 
 ### fzf
 install ag rg perl
@@ -165,6 +156,24 @@ m<S-[0-9]>:Remove all markers of the same type
 [=: Jump to prev line having a marker of any type
 
 ### other tips
+C+v visual
+s+v
+v
+C+x number descrease
+C+a number inscrease
+
+c+v + I every block do same operator insert mode
+c+v + g every block do same operator normal mode
+https://yianwillis.github.io/vimcdoc/doc/visual.html
+
+{
+在所有被选择的行后加上点东西：
+<Ctrl-v> 选中行
+$ 到行最后（不加将在每行行首编辑）
+A 块操作中进入插入模式
+输入 ESC
+}
+
 插入模式下ctrl + o可以让你执行一次正常模式下的命令
 "ayy 就是复制当前行到 "a 字母寄存器中
 
@@ -177,38 +186,15 @@ m<S-[0-9]>:Remove all markers of the same type
 /\<\d\d\d\d\>       精确搜索四个数字
 /^\n\{3}            搜索连续三个空行
 
-%                   跳转到 {} () [] 的匹配
-CTRL-F              下一页
-CTRL-B              上一页
 CTRL-W              向后删除单词
-CTRL-^              跳转到 alternate file (当前窗口的上一个文件）
 2gUw 可以将当前单词以及下一个单词转成大写
-ctrl + x //进入补全模式
-CTRL-X CTRL-F       插入模式下文件路径补全
-CTRL-X CTRL-O       插入下 Omnifunc 补全
-CTRL-X CTRL-N       插入模式下关键字补全
-CTRL-X CTRL-E       插入模式下向上滚屏
-CTRL-X CTRL-Y       插入模式下向下滚屏
-CTRL-E              向上滚屏
-CTRL-Y              向下滚屏
-zz                  调整光标所在行到屏幕中央
-zt                  调整光标所在行到屏幕上部
-zb                  调整光标所在行到屏幕下部
 :%!xxd              开始二进制编辑
 :%!xxd -r           保存二进制编辑
 `:diffsplit` 缩写 `:diffs` diff 模式打开一个分屏，后面可以加上 {filename}
 `split` 创建分屏 缩写 `:sp` `vsplit` 缩写 `:vs` 创建垂直分屏
-{
-在所有被选择的行后加上点东西：
-<Ctrl-v> 选中行
-$ 到行最后（不加将在每行行首编辑）
-A 块操作中进入插入模式
-输入 ESC
-}
 
 [[和]]用来在函数之间跳转，其中[[为跳转到上一个函数开头，]]为跳转到下一个函数开头。
 ][为跳转到本函数的结尾。
-<C-o>跳转回之前的文件或者光标所在处。<C-i><C-o>的逆转。
 
 ### cpp
 gd 意思： go to definition

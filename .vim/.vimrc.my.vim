@@ -72,6 +72,7 @@ augroup resCur
 	autocmd BufReadPost * call setpos(".", getpos("'\""))
 augroup END
 " Clipboard
+" 设置系统复制
 if has('clipboard')
 	if has('unnamedplus')  " When possible use + register for copy-paste
 		set clipboard=unnamed,unnamedplus
@@ -132,28 +133,6 @@ function! ToggleLine()
 endfunc
 " }}}
 
-" help toggle {{{
-function! HelpVimToggle()
-	let s:content= [
-		\ ['open shortcut', 'e ~/.vim/shortcut.md'],
-		\ ['git', 'e ~/.vim/doc/git.txt'],
-		\ ['siguature', 'e ~/.vim/doc/siguature.txt'],
-		\ ['surrounding', 'e ~/.vim/doc/vi-surrounding'],
-		\ ['snip',  'e ~/.vim/doc/vim-snip'],
-		\ ]
-	let s:opts = {'title': 'open help'}
-	call quickui#listbox#open(s:content, s:opts)
-endfunction
-function! Helpmy(num)
-    pedit ~/vimtips.txt
-	if(a:num=="h")
-		e ~/.vim/doc/vi-help.md
-	elseif(a:num=="snip")
-		e ~/.vim/doc/snipMate.txt
-	endif
-endfunction
-" }}}
-
 " Highlight EOL whitespace, http://vim.wikia.com/wiki/Highlight_unwanted_spaces
 highlight default ExtraWhitespace ctermbg=darkred guibg=darkred
 autocmd ColorScheme * highlight default ExtraWhitespace ctermbg=darkred guibg=darkred
@@ -198,17 +177,30 @@ command CursorToggle call s:CursorToggle()
 " show shortcut {{{
 " F7 cpp 函数类层级
 " 设置 F10 打开/关闭 Quickfix 窗口
-nnoremap <F2> :call HelpVimToggle()<CR>
+nnoremap <F2> :call HelpFNShortCutToggle()<CR>
 nnoremap <F3> :Autoformat<CR>
 set pastetoggle=<F4>
 nnoremap <F5> :call Togglemouse()<CR>
 nnoremap <F6> :call ToggleLine()<CR>
 nnoremap <F7> :Vista!!<CR>
 nnoremap <F8> :MundoToggle<CR>
-nnoremap <F9> :call HelpShortCutToggle()<CR>
 nnoremap <F10> :call asyncrun#quickfix_toggle(6)<cr>
 nnoremap <F12> :call Toggle_transparent_background()<CR>
-function! HelpShortCutToggle()
+
+" help toggle {{{
+nnoremap <M-h> :call HelpVimToggle()<CR>
+function! HelpVimToggle()
+	let s:content= [
+		\ ['open shortcut', 'e ~/.vim/shortcut.md'],
+		\ ['Fn shortcut', 'call HelpFNShortCutToggle()'],
+		\ ['coc command', 'call HelpCocShortCutToggle()'],
+		\ ['vim tips', 'call HelpVimTipsToggle()'],
+		\ ['snip',  'e ~/.vim/doc/vim-snip'],
+		\ ]
+	let s:opts = {'title': 'open help'}
+	call quickui#listbox#open(s:content, s:opts)
+endfunction
+function! HelpFNShortCutToggle()
 	let s:content= [
 		\ ['F2 vim help'],
 		\ ['F3 Autoformat', 'Autoformat'],
@@ -217,13 +209,47 @@ function! HelpShortCutToggle()
 		\ ['F6 line', 'call ToggleLine()'],
 		\ ['F7 mouse', 'Vista!!'],
 		\ ['F8 undotree', 'MundoToggle'],
-		\ ['F9 vim help', 'call HelpShortCutToggle()'],
 		\ ['F10 Quickfix', 'call asyncrun#quickfix_toggle(6)'],
 		\ ['F12 transparency', 'call Toggle_transparent_background()'],
 		\ ]
 	let s:opts = {'title': 'F shortcut'}
 	call quickui#listbox#open(s:content, s:opts)
 endfunction
+function! HelpCocShortCutToggle()
+	let s:content= [
+		\ ['Space o CocList outline'],
+		\ ['Space s CocList symbols'],
+		\ ['Space r ranger'],
+		\ ['Ctrl ^ switch header'],
+		\ [',rf refactor'],
+		\ ['gs git chunkinfo'],
+		\ [',gu git chunkundo'],
+		\ [',kc ,kb ,ki conflict'],
+		\ [',x v mode convert snip'],
+		\ ]
+	let s:opts = {'title': 'F Coc shortcut'}
+	call quickui#listbox#open(s:content, s:opts)
+endfunction
+function! HelpVimTipsToggle()
+	let s:content= [
+		\ ['<c-x><c-f> 补全文件名'],
+		\ ['<c-x><c-i> 补全关键字'],
+		\ ['<c-x><c-e> 插入模式下向上滚屏'],
+		\ ['<c-x><c-y> 插入模式下向下滚屏'],
+		\ ['"aY 存储到寄存器a'],
+		\ ['. 当前行 $ 最后一行'],
+		\ ['<c-o> 执行一次正常模式下的命令'],
+		\ ['% 跳转到 {} () [] 的匹配'],
+		\ ['zz 调整光标所在行到屏幕中央'],
+		\ ['zt 调整光标所在行到屏幕上部'],
+		\ ['zb 调整光标所在行到屏幕下部'],
+		\ ['<c-o>跳转光标<c-i><c-o>逆转'],
+		\ ['alt+shift+hkjl windows']
+		\ ]
+	let s:opts = {'title': 'F vim tips'}
+	call quickui#listbox#open(s:content, s:opts)
+endfunction
+" }}}
 " }}}
 
 " }}}

@@ -123,6 +123,16 @@ Plug 'TaDaa/vimade', {
 		\ 'on': [],
 		\ 'description': '聚焦窗口'
 	  	\ }
+Plug 'itchyny/vim-cursorword', {
+		\ 'dir': '$pluginstalldir/tool/vim-cursorword',
+		\ 'on': [],
+		\ 'description': 'underline the work'
+	  	\ }
+Plug 'lfv89/vim-interestingwords', {
+		\ 'dir': '$pluginstalldir/tool/vim-interestingwords',
+		\ 'on': [],
+		\ 'description': 'highlight different word'
+	  	\ }
 " }}}
 
 " 外观{{{
@@ -179,6 +189,7 @@ function! LoadPlugSe(timer)
 	call plug#load('asyncrun.extra')
 	call plug#load('asynctasks.vim')
 	call plug#load('vim-tmux-navigator')
+	call plug#load('vim-interestingwords')
 	" call plug#load('vim-keysound')
 " By default vista.vim never run if you don't call it explicitly.
 "

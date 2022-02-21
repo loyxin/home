@@ -64,14 +64,13 @@
 	},
 	"coc.preferences.semanticTokensHighlights": false,
 	"cmake.lsp.enable": true,
-	"cmake.lsp.serverPath": "~/.local/bin/cmake-language-server",
+	"cmake.lsp.serverPath": "/usr/bin/cmake-language-server",
 	"cmake.lsp.buildDirectory": "build_root",
-	"cmake.formatter": "~/.local/bin/cmake-format",
+	"cmake.formatter": "/usr/bin/cmake-format",
 
 	"diagnostic-languageserver.filetypes": {
 		"vim": "vint",
 		"sh": "shellcheck",
-		"cmake": ["cmake-lint", "cmakelint"]
 	},
 	"diagnostic-languageserver.formatFiletypes": {
 		"sh": "shfmt",

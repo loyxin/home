@@ -76,8 +76,6 @@ set undofile
 " 不可以用鼠标移动光标 a是可以
 set   mouse=c
 set history=1000      " Store a ton of history (default is 20)
-" 设置系统复制
-set clipboard=unnamedplus
 "}}}
 
 " other setting{{{
