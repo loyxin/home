@@ -41,7 +41,10 @@ Order: related header, C system headers, C++ standard library headers, other lib
 
 ## tips
 返回指针 如果不可能为空就正确类型，可能返回空指针 std::option
-谁申请谁管理释放
+- 谁申请谁管理释放
+new开头的函数 都是 外面管理内存
+get 函数不要 delete
+
 一个函数里面申请内存，填值，返回，用智能指针包
 调用该函数得到指针，就不用管理内存了
 智能指针帮助管理内存
