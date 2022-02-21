@@ -138,8 +138,6 @@ nmap [c <Plug>(coc-git-prevconflict)
 nmap ]c <Plug>(coc-git-nextconflict)
 " show chunk diff at current position
 nmap gs <Plug>(coc-git-chunkinfo)
-" show commit contains current position
-nmap gc <Plug>(coc-git-commit)
 " create text object for git chunks
 omap ig <Plug>(coc-git-chunk-inner)
 xmap ig <Plug>(coc-git-chunk-inner)
@@ -149,9 +147,9 @@ xmap ag <Plug>(coc-git-chunk-outer)
 " show diff
 nnoremap <leader>gu :CocCommand git.chunkUndo<cr>
 " keep conflict
-nnoremap <leader>kc <Plug>(coc-git-keepcurrent)
-nnoremap <leader>ki <Plug>(coc-git-keepincoming)
-nnoremap <leader>kb <Plug>(coc-git-keepboth)
+nnoremap <leader>kc :CocCommand git.keepCurrent<cr>
+nnoremap <leader>ki :CocCommand git.keepIncoming<cr>
+nnoremap <leader>kb :CocCommand git.keepBoth<cr>
 
 " Use <C-l> for trigger snippet expand.
 imap <C-t> <Plug>(coc-snippets-expand)

@@ -104,3 +104,5 @@ let g:NERDSpaceDelims=1 " 注释符号后面空一格
 " normal 模式下中英文输入法
 let g:barbaric_ime = 'fcitx'
 " }}}
+
+let g:quickui_color_scheme = 'gruvbox'

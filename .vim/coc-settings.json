@@ -65,7 +65,7 @@
 	"coc.preferences.semanticTokensHighlights": false,
 	"cmake.lsp.serverPath": "~/.local/bin/cmake-language-server",
 	"cmake.lsp.buildDirectory": "build_root",
-	"cmake.formatter": "~/.local/bin/cmake-format",
+	"cmake.formatter": "/usr/bin/cmake-format",
 
 	"java.home": "~/program/install/jdk",
 	"xml.server.binary.path": "~/.config/coc/extensions/coc-xml-data/org.eclipse.lemminx-0.11.0.jar",
@@ -73,7 +73,6 @@
 	"diagnostic-languageserver.filetypes": {
 		"vim": "vint",
 		"sh": "shellcheck",
-		"cmake": ["cmake-lint", "cmakelint"]
 	},
 	"diagnostic-languageserver.formatFiletypes": {
 		"sh": "shfmt",
