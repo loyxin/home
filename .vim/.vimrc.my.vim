@@ -16,60 +16,39 @@ function! MySetTitle()
 	if &filetype == 'sh'
 		call setline(1,"\#!/bin/bash")
 		call append(line("."), "\#########################################################################")
-		call append(line(".")+1, "\# File Name: ".expand("%"))
-		call append(line(".")+2, "\# Author: " . g:myname)
-		call append(line(".")+3, "\# mail: " . g:myemail)
-		call append(line(".")+4, "\# Created Time: ".strftime("20%y-%m-%d %H:%M:%S"))
-		call append(line(".")+5, "\#########################################################################")
-		call append(line(".")+6, "")
+		call append(line(".")+1, "\# Author: " . g:myname)
+		call append(line(".")+2, "\# mail: " . g:myemail)
+		call append(line(".")+3, "\#########################################################################")
+		call append(line(".")+4, "")
 	endif
 	if &filetype == 'cpp'
 		call setline(1, "/*************************************************************************")
-		call append(line("."), "	> File Name: ".expand("%"))
-		call append(line(".")+1, "	> Author: " . g:myname)
-		call append(line(".")+2, "	> Mail: " . g:myemail)
-		call append(line(".")+3, "	> Created Time: ".strftime("20%y-%m-%d %H:%M:%S"))
-		call append(line(".")+4, " ************************************************************************/")
-		call append(line(".")+5, "")
+		call append(line("."), 	 "	> Author: " . g:myname)
+		call append(line(".")+1, "	> Mail: " . g:myemail)
+		call append(line(".")+2, " ************************************************************************/")
+		call append(line(".")+3, "")
 		" call append(line(".")+6, "#include<dbg.h>")
-		call append(line(".")+7, "#include<iostream>")
-		call append(line(".")+8, "using namespace std;")
-		call append(line(".")+9, "")
+		call append(line(".")+4, "#include<iostream>")
+		call append(line(".")+5, "using namespace std;")
+		call append(line(".")+6, "")
 	endif
 	if &filetype == 'c'
 		call setline(1, "/*************************************************************************")
-		call append(line("."), "	> File Name: ".expand("%"))
-		call append(line(".")+1, "	> Author: " . g:myname)
-		call append(line(".")+2, "	> Mail: " . g:myemail)
-		call append(line(".")+3, "	> Created Time: ".strftime("20%y-%m-%d %H:%M:%S"))
-		call append(line(".")+4, " ************************************************************************/")
+		call append(line("."), "	> Author: " . g:myname)
+		call append(line(".")+1, "	> Mail: " . g:myemail)
+		call append(line(".")+2, " ************************************************************************/")
+		call append(line(".")+3, "")
+		call append(line(".")+4, "#include<stdio.h>")
 		call append(line(".")+5, "")
-		call append(line(".")+6, "#include<stdio.h>")
-		call append(line(".")+7, "")
 	endif
 	if &filetype == 'python'
 	    call setline(1, "\#!/usr/bin/python")
 		call setline(2, "\#coding=utf8")
 	    call setline(3, "\"\"\"")
 		call setline(4, "\# Author: " . g:myname)
-		call setline(5, "\# Created Time : ".strftime("20%y-%m-%d %H:%M:%S"))
-		call setline(6, "")
-		call setline(7, "\# File Name: ".expand("%"))
-		call setline(8, "\# Description:")
-	    call setline(9, "")
-	    call setline(10, "\"\"\"")
-	endif
-	if &filetype == 'markdown'
-	    call setline(1, "\---")
-        call setline(2, "layout: post")
-        call setline(3, "title:")
-        call setline(4, "subtitle:")
-        call setline(5, "date: ".strftime("20%y-%m-%d %H:%M:%S"))
-        call setline(6, "category:")
-        call setline(7, "author: " . g:myname)
-        call setline(8, "tags:")
-        call setline(9, "   -")
-        call setline(10, "\---")
+		call setline(5, "\# Description:")
+	    call setline(6, "")
+	    call setline(7, "\"\"\"")
 	endif
 	if &filetype == 'tex'
 		call setline(1,"\\documentclass[12pt,a4paper]{article}")
@@ -124,32 +103,20 @@ endif
 
 " my shortcut{{{
 
-" fold toggle {{{
-let s:lxtogglemark = 1
-function! Togglefoldmark()
-	if s:lxtogglemark
-		set foldmethod=marker
-		let s:lxtogglemark=0
-	else
-		set foldmethod=syntax
-		let s:lxtogglemark=1
-	endif
-endfunc
-nnoremap <F3> :call Togglefoldmark()<CR>
-" }}}
-
 " my mouse toggle{{{
 let s:lxtogglemouse = 0
 function! Togglemouse()
 	if s:lxtogglemouse
 		set mouse=c
 		let s:lxtogglemouse=0
+		let g:cursorword=0
 	else
 		set mouse=a
+		call plug#load('vim-cursorword')
+		let g:cursorword=1
 		let s:lxtogglemouse=1
 	endif
 endfunc
-nnoremap <F5> :call Togglemouse()<CR>
 " }}}
 
 " line releative line{{{
@@ -163,23 +130,19 @@ function! ToggleLine()
 		let s:lxtoggleline=1
 	endif
 endfunc
-nnoremap <F6> :call ToggleLine()<CR>
 " }}}
 
 " help toggle {{{
-nnoremap <c-h> :call HelpVimToggle()<CR>
 function! HelpVimToggle()
-    let g:lxTipstoggle="on"
-	let content= [
-		\ ['none'],
+	let s:content= [
 		\ ['open shortcut', 'e ~/.vim/shortcut.md'],
 		\ ['git', 'e ~/.vim/doc/git.txt'],
 		\ ['siguature', 'e ~/.vim/doc/siguature.txt'],
 		\ ['surrounding', 'e ~/.vim/doc/vi-surrounding'],
 		\ ['snip',  'e ~/.vim/doc/vim-snip'],
 		\ ]
-	let opts = {'title': 'open help'}
-	call quickui#listbox#open(content, opts)
+	let s:opts = {'title': 'open help'}
+	call quickui#listbox#open(s:content, s:opts)
 endfunction
 function! Helpmy(num)
     pedit ~/vimtips.txt
@@ -218,7 +181,6 @@ function! Toggle_transparent_background()
     let t:is_transparent = 0
   endif
 endfunction
-nnoremap <F1> :call Toggle_transparent_background()<CR>
 " }}}
 
 " {{{
@@ -231,6 +193,37 @@ function s:CursorToggle()
 	endif
 endfunction
 command CursorToggle call s:CursorToggle()
+" }}}
+
+" show shortcut {{{
+" F7 cpp 函数类层级
+" 设置 F10 打开/关闭 Quickfix 窗口
+nnoremap <F2> :call HelpVimToggle()<CR>
+nnoremap <F3> :Autoformat<CR>
+set pastetoggle=<F4>
+nnoremap <F5> :call Togglemouse()<CR>
+nnoremap <F6> :call ToggleLine()<CR>
+nnoremap <F7> :Vista!!<CR>
+nnoremap <F8> :MundoToggle<CR>
+nnoremap <F9> :call HelpShortCutToggle()<CR>
+nnoremap <F10> :call asyncrun#quickfix_toggle(6)<cr>
+nnoremap <F12> :call Toggle_transparent_background()<CR>
+function! HelpShortCutToggle()
+	let s:content= [
+		\ ['F2 vim help'],
+		\ ['F3 Autoformat', 'Autoformat'],
+		\ ['F4 Paste'],
+		\ ['F5 mouse and cursor', 'call Togglemouse()'],
+		\ ['F6 line', 'call ToggleLine()'],
+		\ ['F7 mouse', 'Vista!!'],
+		\ ['F8 undotree', 'MundoToggle'],
+		\ ['F9 vim help', 'call HelpShortCutToggle()'],
+		\ ['F10 Quickfix', 'call asyncrun#quickfix_toggle(6)'],
+		\ ['F12 transparency', 'call Toggle_transparent_background()'],
+		\ ]
+	let s:opts = {'title': 'F shortcut'}
+	call quickui#listbox#open(s:content, s:opts)
+endfunction
 " }}}
 
 " }}}

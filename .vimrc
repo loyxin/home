@@ -1,4 +1,5 @@
 " 判断{{{
+let g:lxplugmark=1
 let g:myemail = "loy.luo@asml.com"
 let g:myname = "loy.luo"
 set pythonthreedll=/home/roluo/program/install/py3/lib64/libpython3.8.so
@@ -16,16 +17,6 @@ so $myvimhome/.vim/.vimrc.once.vim
 " Set mapleader
 let mapleader=","
 let g:mapleader=','
-" F1 help F2 rename F11 fullscreen
-" noremap <F3> :Autoformat<CR>
-" F5 mouse toggle
-" F6 line relative toggle
-" F7 cpp 函数类层级
-set pastetoggle=<F4>
-nnoremap <F7> :Vista!!<CR>
-nnoremap <F8> :MundoToggle<CR>
-" 设置 F10 打开/关闭 Quickfix 窗口
-nnoremap <F10> :call asyncrun#quickfix_toggle(6)<cr>
 " ALT-U / ALT-D 可以让旁边的参考窗口上下滚屏
 noremap <M-u> <C-w>p<C-u><C-w>p
 noremap <M-d> <C-w>p<C-d><C-w>p
@@ -188,4 +179,3 @@ nmap <leader>a  <Plug>(coc-codeaction-selected)
 
 "}}}
 "
-let g:lxplugmark=1
