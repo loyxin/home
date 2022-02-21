@@ -42,7 +42,7 @@
 	"timeline.excludeSources": [
 		"git-history"
 	],
-	"window.zoomLevel": 1,
+	"window.zoomLevel": 3,
 	"editor.fontSize": 16,
 	"workbench.iconTheme": "vscode-icons",
 	"vim.disableAnnoyingNeovimMessage": true,

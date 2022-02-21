@@ -221,4 +221,16 @@ endfunction
 nnoremap <F1> :call Toggle_transparent_background()<CR>
 " }}}
 
+" {{{
+let g:cursorword = 1
+function s:CursorToggle()
+	if g:cursorword == 1
+		let g:cursorword = 0
+	else
+		let g:cursorword = 1
+	endif
+endfunction
+command CursorToggle call s:CursorToggle()
+" }}}
+
 " }}}
