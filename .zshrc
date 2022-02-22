@@ -87,4 +87,8 @@ source ~/program/work/.bc
 
 source ~/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.plugin.zsh
 
-eval "$(mcfly init zsh)"
+# eval "$(mcfly init zsh)"
+export FZF_DEFAULT_COMMAND="fd --type f --color=never"
+export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
+export FZF_ALT_C_COMMAND="fd --type d --color=never"
+export FZF_CTRL_T_OPTS="--preview '(highlight -O ansi -l {} 2> /dev/null || bat {} || tree -C {}) 2> /dev/null | head -200'"
