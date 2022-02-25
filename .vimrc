@@ -2,7 +2,7 @@
 let g:lxplugmark=1
 let g:myemail = "loy.luo@asml.com"
 let g:myname = "loy.luo"
-set pythonthreedll=/home/roluo/program/install/py3/lib64/libpython3.8.so
+set pythonthreedll=/home/roluo/program/install/lib/libpython3.so
 let $myvimhome=$HOME
 let g:iswork=1
 " }}}
