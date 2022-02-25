@@ -29,8 +29,7 @@ function! MySetTitle()
 		call append(line(".")+3, "")
 		" call append(line(".")+6, "#include<dbg.h>")
 		call append(line(".")+4, "#include<iostream>")
-		call append(line(".")+5, "using namespace std;")
-		call append(line(".")+6, "")
+		call append(line(".")+5, "")
 	endif
 	if &filetype == 'c'
 		call setline(1, "/*************************************************************************")
