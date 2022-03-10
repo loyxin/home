@@ -16,7 +16,7 @@ ZSH_THEME="dracula"
 # HYPHEN_INSENSITIVE="true"
 
 # 如果不想要自动更新，可以取消注释下面的一行
-DISABLE_AUTO_UPDATE="true"
+# DISABLE_AUTO_UPDATE="true"
 
 # 自动更新的时间间隔，单位是天，这里设置 30 天更新一次
 export UPDATE_ZSH_DAYS=30
@@ -77,7 +77,7 @@ export SSH_KEY_PATH="~/.ssh/id_rsa"
 source ~/.zshset/.zshgit
 source ~/.zshset/.zshalias
 
-PATH=~/bin:/usr/local/bin:~/.local/bin:~/program/install/bin:~/.cargo/bin:$PATH
+PATH=~/bin:~/.local/bin:~/program/install/bin:~/.cargo/bin:/usr/local/bin:$PATH
 export PATH
 source ~/.fzf.zsh
 

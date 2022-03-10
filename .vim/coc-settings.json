@@ -1,4 +1,5 @@
 {
+	"yank.enableCompletion": false,
 	"coc.preferences.colorSupport": false,
 	"suggest.labelMaxLength": 50,
 	"http.proxyStrictSSL": false,
