@@ -44,6 +44,7 @@ nmap <M-8> <Plug>AirlineSelectTab8
 nmap <M-9> <Plug>AirlineSelectTab9
 nmap <M-0> <Plug>AirlineSelectTab0
 nmap <M--> <Plug>AirlineSelectPrevTab
+nmap <C-w> :bd<CR>
 " Save
 nnoremap S :w<CR>
 " 设置快捷键将选中文本块复制至系统剪贴板

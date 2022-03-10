@@ -63,7 +63,7 @@ set wildmenu
 set   wrap
 " set	  tw=70
 set   cursorline " 高亮行
-hi CursorLine term=bold cterm=bold ctermbg=66 ctermfg=NONE
+" hi CursorLine term=bold cterm=bold ctermbg=66 ctermfg=NONE
 set completeopt-=preview
 set completeopt=longest,menu
 set gcr=a:blinkon1
