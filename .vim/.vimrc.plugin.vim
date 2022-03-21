@@ -58,11 +58,6 @@ Plug 'rust-lang/rust.vim', {
 			\ 'for' : ['rust', 'rs'],
 			\ 'dir': '$pluginstalldir/language/rust/rust.vim'
 			\ }
-
-Plug 'tjdevries/coc-zsh', {
-		\ 'on': [],
-		\ 'dir': '$pluginstalldir/tool/coc-zsh'
-	  	\ }
 " }}}
 
 " file{{{
