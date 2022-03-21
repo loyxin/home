@@ -25,21 +25,20 @@ zplug "plugins/fd", from:oh-my-zsh
 zplug "plugins/aliases", from:oh-my-zsh
 zplug "plugins/safe-paste", from:oh-my-zsh
 
-zplug 'loy.xin/zsh', as:theme
+zplug 'dracula/zsh', as:theme
 DRACULA_DISPLAY_GIT=0
 
-zplug "loy.xin/cd-gitroot", as:plugin, lazy:true
-zplug "loy.xin/zsh-autopair", defer:2
-zplug "loy.xin/passwordless-history"
-zplug "loy.xin/fast-syntax-highlighting", defer:3
-zplug "loy.xin/zsh-autosuggestions"
-zplug "loy.xin/calc.plugin.zsh"
-zplug "loy.xin/alias-tips"
-zplug "loy.xin/forgit"
-# zplug "loy.xin/fzf-tab", defer:3
-# zplug "k4rthik/git-cal", as:command
-# zplug "loy.xin/oh-my-zsh-proxy-plugin"
-# loy.xin/wakatime-zsh-plugin
+zplug "mollifier/cd-gitroot", as:plugin, lazy:true
+zplug "hlissner/zsh-autopair", defer:2
+zplug "jgogstad/passwordless-history"
+zplug "zdharma-continuum/fast-syntax-highlighting", defer:3
+zplug "zsh-users/zsh-autosuggestions"
+zplug "arzzen/calc.plugin.zsh"
+zplug "djui/alias-tips"
+zplug "wfxr/forgit"
+zplug "k4rthik/git-cal", as:command
+zplug "escalate/oh-my-zsh-proxy-plugin"
+zplug "sobolevn/wakatime-zsh-plugin"
 
 zplug load
 
