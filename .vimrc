@@ -59,7 +59,6 @@ nnoremap <expr> N  'nN'[v:searchforward]
 function! LoadmyCoc(timer)
 	call  plug#load('coc.nvim')
 	call plug#load('vista.vim')
-	call plug#load('coc-zsh')
 	call plug#load('vim-lsp-cxx-highlight')
 " Make <CR> auto-select the first completion item and notify coc.nvim to
 " format on enter, <cr> could be remapped by other vim plugin
