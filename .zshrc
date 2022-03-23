@@ -9,6 +9,7 @@ zplug "lib/history", from:oh-my-zsh
 zplug "lib/key-bindings", from:oh-my-zsh
 zplug "lib/git", from:oh-my-zsh
 zplug "lib/theme-and-appearance", from:oh-my-zsh
+zplug "lib/directories", from:oh-my-zsh
 
 zplug "plugins/colored-man-pages", from:oh-my-zsh
 zplug "plugins/wd", from:oh-my-zsh
@@ -28,6 +29,7 @@ zplug "plugins/safe-paste", from:oh-my-zsh
 zplug 'loy.xin/zsh', as:theme
 DRACULA_DISPLAY_GIT=0
 
+zplug "loy.xin/fzf", use:"shell/*.zsh", defer:2
 zplug "loy.xin/cd-gitroot", as:plugin, lazy:true
 zplug "loy.xin/zsh-autopair", defer:2
 zplug "loy.xin/passwordless-history"
@@ -36,16 +38,10 @@ zplug "loy.xin/zsh-autosuggestions"
 zplug "loy.xin/calc.plugin.zsh"
 zplug "loy.xin/alias-tips"
 zplug "loy.xin/forgit"
-# zplug "loy.xin/fzf-tab", defer:3
-# zplug "k4rthik/git-cal", as:command
-# zplug "loy.xin/oh-my-zsh-proxy-plugin"
-# loy.xin/wakatime-zsh-plugin
 
 zplug load
 
 source ~/.zshset/alias.zsh
-source ~/.fzf.zsh
-
 source ~/program/work/.bc
 
 # eval "$(mcfly init zsh)"
