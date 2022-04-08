@@ -49,3 +49,33 @@ get 函数不要 delete
 调用该函数得到指针，就不用管理内存了
 智能指针帮助管理内存
 
+
+## private
+easy:
+```cpp
+// out interface
+#include "classaPrivate.h"
+
+class a{
+
+private:
+	classaPrivate m_a;
+};
+```
+
+pImpl
+
+template
+template guard
+can see the private function
+
+
+copy shallow copy
+clone deep copy
+return unique_ptr
+operator= shallow copy
+
+copy(ptr) for memory pool
+
+
+static init function for factory method

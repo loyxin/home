@@ -38,6 +38,9 @@ zplug "loy.xin/zsh-autosuggestions"
 zplug "loy.xin/calc.plugin.zsh"
 zplug "loy.xin/alias-tips"
 zplug "loy.xin/forgit"
+FORGIT_DIFF_PAGER="delta --features forgit"
+FORGIT_PAGER="delta --features forgit"
+FORGIT_SHOW_PAGER="delta --features forgit"
 
 zplug load
 
@@ -57,3 +60,7 @@ export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 export FZF_ALT_C_COMMAND="fd --type d --color=never"
 export FZF_DEFAULT_OPTS="--ansi --preview-window 'right:60%' --preview 'bat --color=always --style=header,grid --line-range :300 {} 2> /dev/null'"
 export BAT_THEME=Dracula
+
+export MCFLY_KEY_SCHEME=vim
+export MCFLY_INTERFACE_VIEW=BOTTOM
+eval "$(mcfly init zsh)"
